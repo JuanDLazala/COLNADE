@@ -1,0 +1,3 @@
+# BOCETO — desindexar hasta lanzamiento oficial
+User-agent: *
+Disallow: /
