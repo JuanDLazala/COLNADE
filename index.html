@@ -453,21 +453,36 @@
     }
     .why .container { position: relative; z-index: 1; }
 
-    /* Logo full-color destacado */
+    /* Logo full-color destacado — animación */
+    @keyframes why-logo-in {
+      from { opacity: 0; transform: scale(.88) translateY(14px); }
+      to   { opacity: 1; transform: scale(1)  translateY(0);     }
+    }
+    @keyframes why-logo-float {
+      0%,100% { transform: translateY(0px);  }
+      50%      { transform: translateY(-9px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .why-logo-wrap img { animation: none !important; }
+    }
+
     .why-logo-wrap {
       display: flex;
       justify-content: center;
-      margin: 2.4rem 0 clamp(2rem, 4vw, 3.2rem);
+      margin: 2.6rem 0 clamp(2.2rem, 4.5vw, 3.6rem);
     }
     .why-logo-wrap img {
-      width: clamp(180px, 28vw, 320px);
+      width: clamp(240px, 40vw, 440px);
       height: auto;
-      filter: drop-shadow(0 6px 24px rgba(26,74,46,.20));
-      transition: transform .35s ease, filter .35s ease;
+      filter: drop-shadow(0 8px 28px rgba(26,74,46,.22));
+      animation:
+        why-logo-in    .7s cubic-bezier(.22,.68,0,1.2) both,
+        why-logo-float  5s ease-in-out infinite 1s;
+      transition: filter .35s ease;
     }
     .why-logo-wrap img:hover {
-      transform: scale(1.04);
-      filter: drop-shadow(0 12px 36px rgba(26,74,46,.30));
+      filter: drop-shadow(0 14px 42px rgba(45,122,79,.42));
+      animation-play-state: paused;
     }
 
     .why-grid {
