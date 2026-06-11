@@ -426,7 +426,47 @@
     /* ================================================
        WHY COLNADE
        ================================================ */
-    .why { background: var(--off-white); }
+    .why {
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Trama de fondo — logo monocromo verde al 10% */
+    .why::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(500px, 70vw, 860px);
+      height: clamp(500px, 70vw, 860px);
+      background-image: url('mq8otj8t-__2-ID-Monotono-verde.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: .10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .why .container { position: relative; z-index: 1; }
+
+    /* Logo full-color destacado */
+    .why-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 2.4rem 0 clamp(2rem, 4vw, 3.2rem);
+    }
+    .why-logo-wrap img {
+      width: clamp(180px, 28vw, 320px);
+      height: auto;
+      filter: drop-shadow(0 6px 24px rgba(26,74,46,.20));
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .why-logo-wrap img:hover {
+      transform: scale(1.04);
+      filter: drop-shadow(0 12px 36px rgba(26,74,46,.30));
+    }
+
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
@@ -1464,6 +1504,11 @@
       <h2 class="s-title" id="why-ttl">Tu respaldo profesional en ecología</h2>
       <p class="s-sub">COLNADE es más que un gremio — es la plataforma que conecta tu trayectoria con las oportunidades que mereces.</p>
     </div>
+    <!-- Logo full-color con subtítulo — protagonismo de marca -->
+    <div class="why-logo-wrap rv">
+      <img src="mq8otja6-__5-ID-fullcolor-ST.png" alt="COLNADE — Colegio Nacional de Ecólogos de Colombia" loading="lazy" />
+    </div>
+
     <div class="why-grid">
       <div class="why-card rv">
         <div class="why-icon" aria-hidden="true">
