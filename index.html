@@ -1258,54 +1258,66 @@
       margin-bottom: 2rem;
     }
     .ies-label {
-      display: inline-block;
+      display: block;
       font-family: var(--font-display);
       font-size: .68rem;
       font-weight: 700;
       letter-spacing: .22em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--green-mid);
+      margin-bottom: .55rem;
+    }
+    .ies-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      color: var(--green-dark);
       margin-bottom: .4rem;
+      line-height: 1.2;
     }
     .ies-desc {
       font-size: .85rem;
       color: var(--text-muted);
+      margin: 0;
     }
     .ies-strip {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: clamp(2rem, 5vw, 4rem);
+      gap: clamp(2.5rem, 6vw, 5rem);
+      margin-top: 2.4rem;
     }
     .ies-logo {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: .6rem;
+      gap: .75rem;
       opacity: 0.72;
       transition: opacity var(--ease);
     }
     .ies-logo:hover { opacity: 1; }
     .ies-logo img {
-      height: 52px;
+      height: 80px;
       width: auto;
+      max-width: 160px;
       object-fit: contain;
       filter: grayscale(30%);
       transition: filter var(--ease);
     }
     .ies-logo:hover img { filter: grayscale(0%); }
     .ies-logo span {
-      font-size: .7rem;
+      font-size: .72rem;
+      font-weight: 600;
       font-family: var(--font-display);
       color: var(--text-muted);
       text-align: center;
-      max-width: 120px;
-      line-height: 1.3;
+      max-width: 140px;
+      line-height: 1.35;
     }
     @media (max-width: 600px) {
-      .ies-strip { gap: 1.5rem; }
-      .ies-logo img { height: 42px; }
+      .ies-strip { gap: 2rem; }
+      .ies-logo img { height: 60px; }
     }
 
     /* ================================================
@@ -2275,8 +2287,9 @@
 <section class="ies sec" id="ies-aliadas" aria-label="Instituciones de Educación Superior aliadas a COLNADE">
   <div class="container">
     <div class="ies-label-row">
-      <span class="ies-label">Instituciones aliadas</span>
-      <p class="ies-desc">Programas de Ecología acreditados que integran la red COLNADE</p>
+      <p class="ies-label">Instituciones aliadas</p>
+      <h2 class="ies-title">Universidades con programas de Ecología en COLNADE</h2>
+      <p class="ies-desc">Programas acreditados que integran nuestra red profesional nacional</p>
     </div>
     <div class="ies-strip">
       <a href="https://www.javeriana.edu.co" target="_blank" rel="noopener noreferrer" class="ies-logo" aria-label="Pontificia Universidad Javeriana">
