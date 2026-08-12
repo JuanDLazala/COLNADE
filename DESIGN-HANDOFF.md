@@ -1,4 +1,4 @@
-# 36930bf6-7638-43dd-a8a5-5af08c449a00 implementation handoff
+# d6b5efee-cb2b-4154-ba49-32413d4105e3 implementation handoff
 
 This archive is the source of truth for turning the design into production code. Start from `index.html`, then preserve the visual system, responsive behavior, and interactions found in the exported files.
 
@@ -11,10 +11,10 @@ This archive is the source of truth for turning the design into production code.
 
 ## Source map
 - Primary entry: `index.html`
-- HTML screens detected: 2
-- Stylesheets detected: 0
+- HTML screens detected: 7
+- Stylesheets detected: 1
 - Script/component files detected: 0
-- Supporting assets detected: 14
+- Supporting assets detected: 22
 
 ## Responsive contract
 Validate the implementation across this 2025–2026 viewport matrix:
@@ -50,7 +50,7 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 ## Color and brand contract
 - Use the exported design tokens and product/domain context as the color source of truth.
 - Do not introduce warm beige / cream / peach / pink / orange-brown background washes unless they are already explicit brand/reference colors in the export.
-- No obvious token stylesheet was detected; sample colors from the entry file and convert them into named tokens before coding.
+- A stylesheet or design/token file was detected; inspect it for canonical color variables before choosing framework theme tokens.
 
 ## Implementation sequence for AI coding tools
 1. Open `index.html` and `DESIGN-MANIFEST.json`; identify every screen file, launcher/overview file, app module, and interaction before coding.
@@ -63,16 +63,27 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 8. Compare final screenshots against the export at 360×800, 390×844, 430×932, 820×1180, 1024×768, 1366×768, 1440×900, and 1920×1080 before declaring done.
 
 ## Entry points
-- `colnade-website.html`
+- `analisis.html`
+- `biblioteca.html`
+- `cifras.html`
 - `index.html`
+- `portada.html`
+- `tema.html`
+- `tribuna.html`
 
 ## Styles
-- None detected
+- `assets/observatorio.css`
 
 ## Scripts/components
 - None detected
 
 ## Assets and supporting files
+- `assets/autores/autor-2.jpg`
+- `assets/autores/autor-4.jpg`
+- `assets/autores/autor-5.jpg`
+- `assets/autores/autora-1.jpg`
+- `assets/autores/autora-3.jpg`
+- `assets/autores/autora-6.jpg`
 - `mq8otj7v-__1-ID-full-color.png`
 - `mq8otj8f-__2-ID-Monotono-oscuro.png`
 - `mq8otj8t-__2-ID-Monotono-verde.png`
@@ -87,6 +98,8 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 - `mq8p6aeh-Texturas.png`
 - `mq8p6kdl-Texturas2.png`
 - `mq8p6kdv-Texturas3.png`
+- `OBSERVATORIO-CONTENIDO.md`
+- `OBSERVATORIO-ESTRUCTURA-v2.md`
 
 ## Coding checklist for AI tools
 1. Inspect `index.html` and `DESIGN-MANIFEST.json` first and identify reusable components before coding.

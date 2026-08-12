@@ -21,3 +21,22 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Observatorio — mismo tratamiento de caché que el resto del sitio
+[[headers]]
+  for = "/observatorio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# La página de revisión interna nunca debe indexarse, ni siquiera
+# después de que se levante el Disallow global de robots.txt
+[[headers]]
+  for = "/observatorio/revision.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# URL corta y estable para el Observatorio
+[[redirects]]
+  from = "/observatorio"
+  to = "/observatorio/"
+  status = 301

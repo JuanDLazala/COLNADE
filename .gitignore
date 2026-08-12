@@ -1,0 +1,17 @@
+# Exportaciones de herramientas de diseño — no son fuente del sitio
+*.zip
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Netlify
+.netlify/

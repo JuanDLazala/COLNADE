@@ -1,10 +1,19 @@
 {
   "schema": "open-design.design-manifest.v1",
-  "title": "36930bf6-7638-43dd-a8a5-5af08c449a00",
+  "title": "d6b5efee-cb2b-4154-ba49-32413d4105e3",
   "entryFile": "index.html",
   "sourceFiles": {
     "all": [
-      "colnade-website.html",
+      "analisis.html",
+      "assets/autores/autor-2.jpg",
+      "assets/autores/autor-4.jpg",
+      "assets/autores/autor-5.jpg",
+      "assets/autores/autora-1.jpg",
+      "assets/autores/autora-3.jpg",
+      "assets/autores/autora-6.jpg",
+      "assets/observatorio.css",
+      "biblioteca.html",
+      "cifras.html",
       "index.html",
       "mq8otj7v-__1-ID-full-color.png",
       "mq8otj8f-__2-ID-Monotono-oscuro.png",
@@ -19,15 +28,33 @@
       "mq8otjch-__10-ID-negro-vertical-ST.png",
       "mq8p6aeh-Texturas.png",
       "mq8p6kdl-Texturas2.png",
-      "mq8p6kdv-Texturas3.png"
+      "mq8p6kdv-Texturas3.png",
+      "OBSERVATORIO-CONTENIDO.md",
+      "OBSERVATORIO-ESTRUCTURA-v2.md",
+      "portada.html",
+      "tema.html",
+      "tribuna.html"
     ],
     "html": [
-      "colnade-website.html",
-      "index.html"
+      "analisis.html",
+      "biblioteca.html",
+      "cifras.html",
+      "index.html",
+      "portada.html",
+      "tema.html",
+      "tribuna.html"
     ],
-    "css": [],
+    "css": [
+      "assets/observatorio.css"
+    ],
     "scriptsAndComponents": [],
     "assets": [
+      "assets/autores/autor-2.jpg",
+      "assets/autores/autor-4.jpg",
+      "assets/autores/autor-5.jpg",
+      "assets/autores/autora-1.jpg",
+      "assets/autores/autora-3.jpg",
+      "assets/autores/autora-6.jpg",
       "mq8otj7v-__1-ID-full-color.png",
       "mq8otj8f-__2-ID-Monotono-oscuro.png",
       "mq8otj8t-__2-ID-Monotono-verde.png",
@@ -41,12 +68,24 @@
       "mq8otjch-__10-ID-negro-vertical-ST.png",
       "mq8p6aeh-Texturas.png",
       "mq8p6kdl-Texturas2.png",
-      "mq8p6kdv-Texturas3.png"
+      "mq8p6kdv-Texturas3.png",
+      "OBSERVATORIO-CONTENIDO.md",
+      "OBSERVATORIO-ESTRUCTURA-v2.md"
     ]
   },
   "screens": [
     {
-      "file": "colnade-website.html",
+      "file": "analisis.html",
+      "role": "screen",
+      "implementationNote": "Preserve visual hierarchy, responsive behavior, and interactive states from this screen."
+    },
+    {
+      "file": "biblioteca.html",
+      "role": "screen",
+      "implementationNote": "Preserve visual hierarchy, responsive behavior, and interactive states from this screen."
+    },
+    {
+      "file": "cifras.html",
       "role": "screen",
       "implementationNote": "Preserve visual hierarchy, responsive behavior, and interactive states from this screen."
     },
@@ -54,6 +93,21 @@
       "file": "index.html",
       "role": "launcher-overview",
       "implementationNote": "Use this as the navigation/overview entry only; implement each linked screen file as its own route/surface."
+    },
+    {
+      "file": "portada.html",
+      "role": "screen",
+      "implementationNote": "Preserve visual hierarchy, responsive behavior, and interactive states from this screen."
+    },
+    {
+      "file": "tema.html",
+      "role": "screen",
+      "implementationNote": "Preserve visual hierarchy, responsive behavior, and interactive states from this screen."
+    },
+    {
+      "file": "tribuna.html",
+      "role": "screen",
+      "implementationNote": "Preserve visual hierarchy, responsive behavior, and interactive states from this screen."
     }
   ],
   "screenFilePolicy": {
@@ -87,7 +141,7 @@
   },
   "tokens": {
     "source": [
-      "index.html"
+      "assets/observatorio.css"
     ],
     "required": [
       "background",
