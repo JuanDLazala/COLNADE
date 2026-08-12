@@ -35,8 +35,8 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
-# URL corta y estable para el Observatorio
-[[redirects]]
-  from = "/observatorio"
-  to = "/observatorio/"
-  status = 301
+# NO añadir aquí un redirect de "/observatorio" a "/observatorio/".
+# Netlify ignora la barra final al emparejar reglas, así que esa regla
+# también captura "/observatorio/" y se redirige a sí misma: bucle infinito
+# y ERR_TOO_MANY_REDIRECTS en toda la sección. Netlify ya resuelve la barra
+# final por su cuenta y sirve /observatorio/index.html sin ayuda.
