@@ -124,10 +124,9 @@
     </button>
     <nav class="site-nav" aria-label="Principal" data-od-id="site-nav">
       <a href="tema.html" data-od-id="nav-tema">Tema del mes</a>
-      <a href="index.html#lineas" data-od-id="nav-lineas">Líneas</a>
-      <a href="analisis.html" data-od-id="nav-analisis">Análisis</a>
       <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
       <a href="cifras.html" class="is-active" aria-current="page" data-od-id="nav-cifras">Cifras</a>
+      <a href="index.html#lineas" data-od-id="nav-lineas">Líneas</a>
       <a href="biblioteca.html" data-od-id="nav-biblioteca">Biblioteca</a>
       <a href="metodo.html" data-od-id="nav-metodo">Método</a>
     </nav>
@@ -144,7 +143,7 @@
 
       <p class="section-label">La ecología en cifras</p>
       <h1 style="max-width:20ch;">El estado de la profesión, con fuente y fecha de corte</h1>
-      <p class="lead" style="max-width:64ch;margin-bottom:var(--space-8);">Colombia nunca ha tenido un retrato estadístico de sus ecólogos. Este es el primero. Todas las cifras salen del Registro Único de Ecólogos (RUE) que administra COLNADE y del Sistema Nacional de Información de la Educación Superior (SNIES). Cada dato lleva su fuente y su fecha de corte al lado.</p>
+      <p class="lead" style="max-width:64ch;margin-bottom:var(--space-8);">Colombia nunca ha tenido un retrato estadístico de sus ecólogos. Este es el primero. Todas las cifras salen del Registro Único de Ecólogos (RUE) que administra COLNADE y del Sistema Nacional de Información de la Educación Superior (SNIES). Cada dato lleva su fuente y su fecha de corte al lado, y la página se actualiza con cada corte nuevo del registro.</p>
 
       <div class="dato-marca" style="max-width:64ch;margin-bottom:var(--space-12);">
         <p style="margin:0;font-size:16px;line-height:1.6;">El archivo del RUE tiene <strong>1.380 registros</strong>. Uno corresponde a una persona inscrita dos veces con universidades distintas, así que las cifras de esta página se calculan sobre <strong>1.379 ecólogos únicos</strong>. Donde un cálculo deja registros fuera, se dice cuántos y por qué.</p>
@@ -167,7 +166,7 @@
       </div>
 
       <!-- B · Matrículas por año -->
-      <div data-od-id="grafico-matriculas" style="margin-bottom:var(--space-12);">
+      <div id="grafico-matriculas" data-od-id="grafico-matriculas" style="margin-bottom:var(--space-12);">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;">
           <h2>Matrículas profesionales tramitadas por año</h2>
         </div>
@@ -215,7 +214,7 @@
       </div>
 
       <!-- C · Titulación por década -->
-      <div data-od-id="tabla-decadas" style="margin-bottom:var(--space-12);">
+      <div id="tabla-decadas" data-od-id="tabla-decadas" style="margin-bottom:var(--space-12);">
         <h2>Se gradúan más ecólogos que nunca y las matrículas caen</h2>
         <p style="color:var(--tinta-2);max-width:62ch;margin:8px 0 4px;">En los seis años corridos de esta década ya se han titulado casi tantos ecólogos como en toda la anterior. Es la brecha entre formarse y registrarse.</p>
         <p class="fuente-pie" style="margin-bottom:24px;">RUE · corte 30 de julio de 2026</p>
@@ -297,6 +296,32 @@
         <p class="disclaimer"><strong>Advertencia metodológica.</strong> El archivo registra 38 denominaciones distintas de departamento, con errores de digitación, y anota Bogotá unas veces como ciudad de Cundinamarca y otras como territorio aparte. Por eso Bogotá y Cundinamarca se presentan juntas y no se publica el desglose completo por departamento: no resistiría la verificación.</p>
       </div>
 
+
+      <!-- G · Hallazgos: la lectura de los datos, con fecha -->
+      <div data-od-id="hallazgos" style="margin-top:var(--space-12);border-top:1px solid var(--arena);padding-top:var(--space-8);">
+        <p class="section-label">Hallazgos</p>
+        <h2 style="max-width:24ch;">Lo que el registro deja ver</h2>
+        <p style="color:var(--tinta-2);max-width:66ch;margin:8px 0 var(--space-6);">Un hallazgo no es una opinión del Colegio ni una posición institucional: es la lectura de un dato que está en el registro y que cualquiera puede recalcular con el método publicado arriba. Esta página se actualiza cada vez que hay un corte nuevo del RUE.</p>
+
+        <div class="grid grid-2" style="gap:var(--space-6);">
+          <article class="card">
+            <p class="meta">Hallazgo · 28 de julio de 2026</p>
+            <h3 class="col-card__titular" style="margin:6px 0 10px;">Las matrículas cayeron 30% después de 2014 y llevan once años sin recuperarse</h3>
+            <p class="card__excerpt">El promedio anual pasó de 106 trámites entre 2010 y 2014 a 74 entre 2015 y 2025. El pico fue 2014, con 125; el mínimo, 2023, con 61. No es una fluctuación: es un nivel nuevo que se sostiene hace más de una década.</p>
+            <p class="fuente-pie">RUE · corte 30 de julio de 2026 · <a href="#grafico-matriculas">ver la serie completa</a></p>
+          </article>
+
+          <article class="card">
+            <p class="meta">Hallazgo · 8 de julio de 2026</p>
+            <h3 class="col-card__titular" style="margin:6px 0 10px;">Se gradúan más ecólogos que nunca y la brecha con el registro se abre</h3>
+            <p class="card__excerpt">337 titulados en toda la década de 2010; ya 334 en los seis años y medio corridos de esta. Mientras la titulación se acelera, las matrículas profesionales caen. Cada vez más ecólogos ejercen sin pasar por el registro.</p>
+            <p class="fuente-pie">RUE · corte 30 de julio de 2026 · <a href="#tabla-decadas">ver la tabla por décadas</a></p>
+          </article>
+        </div>
+
+        <p class="meta" style="margin-top:var(--space-5);max-width:70ch;">Los hallazgos describen el registro; no proponen una política ni fijan la posición del Colegio. Esa posición se construye en el <a href="tema.html">tema del mes</a> y la aprueba el <a href="metodo.html">Comité Editorial</a>.</p>
+      </div>
+
     </div>
   </section>
 </main>
@@ -313,7 +338,6 @@
         <h4>Secciones</h4>
         <ul>
           <li><a href="tema.html">Tema del mes</a></li>
-          <li><a href="analisis.html">Análisis</a></li>
           <li><a href="tribuna.html">Tribuna</a></li>
           <li><a href="cifras.html">Cifras</a></li>
           <li><a href="biblioteca.html">Biblioteca</a></li>
