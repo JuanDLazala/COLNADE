@@ -99,40 +99,7 @@
 
 <main id="contenido" tabindex="-1">
 
-  <!-- A · Banda de cifras -->
-  <section class="cifras-band" id="cifras-banda" data-od-id="banda-cifras">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
-        <p class="section-label" style="color:var(--blanco);margin:0;">La ecología en cifras</p>
-        <a href="cifras.html" style="color:var(--ambar);font-size:15px;" data-od-id="cta-cifras">Ver todos los datos y su método &rarr;</a>
-      </div>
-      <p style="color:var(--arena);max-width:62ch;margin:0 0 var(--space-6);font-size:17px;">El primer retrato estadístico de la profesión en Colombia, construido sobre el Registro Único de Ecólogos. Nadie más tiene estos datos.</p>
-      <div class="cifras-band__grid">
-        <div class="cifra" data-od-id="cifra-banda-1">
-          <p class="cifra__numero">1.379</p>
-          <p class="cifra__etiqueta">Ecólogos con matrícula profesional en todo el país</p>
-          <p class="cifra__fuente">RUE · corte 30 de julio de 2026</p>
-        </div>
-        <div class="cifra" data-od-id="cifra-banda-2">
-          <p class="cifra__numero">63,2%</p>
-          <p class="cifra__etiqueta">Son mujeres: 872 ecólogas y 507 ecólogos</p>
-          <p class="cifra__fuente">RUE · corte 30 de julio de 2026</p>
-        </div>
-        <div class="cifra" data-od-id="cifra-banda-3">
-          <p class="cifra__numero">&minus;30%</p>
-          <p class="cifra__etiqueta">Cayó el ritmo de matrículas tras 2014 y no se ha recuperado</p>
-          <p class="cifra__fuente">RUE · promedio 2010–2014 vs. 2015–2025</p>
-        </div>
-        <div class="cifra" data-od-id="cifra-banda-4">
-          <p class="cifra__numero">4</p>
-          <p class="cifra__etiqueta">Programas de ecología activos, de cinco que hubo</p>
-          <p class="cifra__fuente">SNIES · Ministerio de Educación</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- B · Tema del mes — el producto del Colegio, con la jerarquía máxima -->
+  <!-- A · Tema del mes — el producto del Colegio, con la jerarquía máxima -->
   <section class="tema-portada" data-od-id="tema-del-mes">
     <div class="container">
       <p class="section-label">El tema del mes · agosto de 2026</p>
@@ -168,14 +135,47 @@
     </div>
   </section>
 
-  <!-- C · Líneas de observación -->
-  <section class="section section--first reveal" data-od-id="lineas" id="lineas">
+  <!-- B · Banda de cifras -->
+  <section class="cifras-band" id="cifras-banda" data-od-id="banda-cifras">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
-        <h2 class="section-label" style="margin:0;">Líneas de observación</h2>
+      <div class="seccion-head">
+        <h2 class="section-label">La ecología en cifras</h2>
+        <a href="cifras.html" data-od-id="cta-cifras">Ver todos los datos y su método &rarr;</a>
+      </div>
+      <p class="intro">El primer retrato estadístico de la profesión en Colombia, construido sobre el Registro Único de Ecólogos. Nadie más tiene estos datos.</p>
+      <div class="cifras-band__grid">
+        <div class="cifra" data-od-id="cifra-banda-1">
+          <p class="cifra__numero">1.379</p>
+          <p class="cifra__etiqueta">Ecólogos con matrícula profesional en todo el país</p>
+          <p class="cifra__fuente">RUE · corte 30 de julio de 2026</p>
+        </div>
+        <div class="cifra" data-od-id="cifra-banda-2">
+          <p class="cifra__numero">63,2%</p>
+          <p class="cifra__etiqueta">Son mujeres: 872 ecólogas y 507 ecólogos</p>
+          <p class="cifra__fuente">RUE · corte 30 de julio de 2026</p>
+        </div>
+        <div class="cifra" data-od-id="cifra-banda-3">
+          <p class="cifra__numero">&minus;30%</p>
+          <p class="cifra__etiqueta">Cayó el ritmo de matrículas tras 2014 y no se ha recuperado</p>
+          <p class="cifra__fuente">RUE · promedio 2010–2014 vs. 2015–2025</p>
+        </div>
+        <div class="cifra" data-od-id="cifra-banda-4">
+          <p class="cifra__numero">4</p>
+          <p class="cifra__etiqueta">Programas de ecología activos, de cinco que hubo</p>
+          <p class="cifra__fuente">SNIES · Ministerio de Educación</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C · Líneas de observación -->
+  <section class="section reveal" data-od-id="lineas" id="lineas">
+    <div class="container">
+      <div class="seccion-head">
+        <h2 class="section-label">Líneas de observación</h2>
         <a href="metodo.html" style="font-size:15px;" data-od-id="cta-metodo-lineas">Cómo trabajamos &rarr;</a>
       </div>
-      <p style="color:var(--tinta-2);max-width:62ch;margin:0 0 var(--space-6);">Tres frentes permanentes. Cada uno abre un tema nuevo el 28 del mes y lo lleva hasta un concepto técnico citable.</p>
+      <p class="intro">Tres frentes permanentes. Cada uno abre un tema nuevo el 28 del mes y lo lleva hasta un concepto técnico citable.</p>
 
       <div class="grid grid-3">
         <article class="card" data-od-id="linea-politicas-publicas">
@@ -210,18 +210,18 @@
         </article>
       </div>
 
-      <p class="meta" style="margin-top:var(--space-5);max-width:70ch;">Estados de un tema: <span class="estado estado--abierto" style="font-size:12px;">Abierto</span> &nbsp; <span class="estado estado--curso" style="font-size:12px;">En investigación</span> &nbsp; <span class="estado estado--publicado" style="font-size:12px;">Con concepto publicado</span> &nbsp; <span class="estado estado--previsto" style="font-size:12px;">Sin abrir</span></p>
+      <p class="nota-bloque">Estados de un tema: <span class="estado estado--abierto" style="font-size:12px;">Abierto</span> &nbsp; <span class="estado estado--curso" style="font-size:12px;">En investigación</span> &nbsp; <span class="estado estado--publicado" style="font-size:12px;">Con concepto publicado</span> &nbsp; <span class="estado estado--previsto" style="font-size:12px;">Sin abrir</span></p>
     </div>
   </section>
 
   <!-- D · Tribuna — la voz individual, deliberadamente subordinada al tema -->
   <section class="section tribuna reveal" data-od-id="tribuna" style="padding-top:var(--space-12);">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
-        <h2 class="section-label" style="margin-bottom:0;">Tribuna · lo que escriben los colegiados</h2>
+      <div class="seccion-head">
+        <h2 class="section-label">Tribuna · lo que escriben los colegiados</h2>
         <a href="tribuna.html" style="font-size:15px;" data-od-id="cta-leer-tribuna">Ver todas las columnas &rarr;</a>
       </div>
-      <p style="color:var(--tinta-2);max-width:64ch;margin:0 0 var(--space-6);">Ecólogos con matrícula profesional escriben sobre el tema del mes, a título personal. El concepto técnico del Colegio cita estas columnas cuando se publica.</p>
+      <p class="intro">Ecólogos con matrícula profesional escriben sobre el tema del mes, a título personal. El concepto técnico del Colegio cita estas columnas cuando se publica.</p>
 
       <p class="aviso-muestra solo-revision">Las tres columnas de abajo son <strong>ejemplos escritos para esta revisión</strong>: los titulares y los textos muestran de qué hablarían, y la autoría —nombre, foto y matrícula— es un marcador, no una persona real. Se reemplaza por los tres columnistas cuando estén confirmados.</p>
 
@@ -268,7 +268,7 @@
     </div>
   </section>
 
-  <!-- F · Qué es el Observatorio -->
+  <!-- E · Qué es el Observatorio -->
   <section class="section que-es reveal" data-od-id="que-es" id="metodo">
     <div class="container que-es__inner">
       <p class="section-label">Qué es el Observatorio</p>
@@ -282,7 +282,7 @@
     </div>
   </section>
 
-  <!-- G · Convocatoria y suscripción -->
+  <!-- F · Convocatoria y suscripción -->
   <section class="section reveal" data-od-id="convocatoria">
     <div class="container">
       <div class="convocatoria">

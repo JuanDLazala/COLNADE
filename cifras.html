@@ -150,28 +150,28 @@
       </div>
 
       <!-- A · Cuántos son -->
-      <div class="grid grid-2" style="margin-bottom:var(--space-12);gap:var(--space-6);">
-        <div data-od-id="cifra-total">
-          <p class="display" style="font-size:clamp(56px,7vw,96px);margin:0;line-height:1;">1.379</p>
-          <h3 style="font-size:20px;margin:8px 0 8px;">Ecólogos con matrícula profesional en Colombia</h3>
-          <p style="margin:0 0 4px;color:var(--tinta-2);font-size:16px;">Primer registro del RUE: 8 de enero de 2010. De los 1.380 registros del archivo, 1.379 figuran como activos y se han expedido 1.380 tarjetas profesionales —1.128 físicas y 252 digitales—, una por registro.</p>
+      <div class="grid grid-2 bloque" style="gap:var(--space-6);">
+        <div class="cifra-suelta" data-od-id="cifra-total">
+          <p class="display">1.379</p>
+          <h3>Ecólogos con matrícula profesional en Colombia</h3>
+          <p>Primer registro del RUE: 8 de enero de 2010. De los 1.380 registros del archivo, 1.379 figuran como activos y se han expedido 1.380 tarjetas profesionales —1.128 físicas y 252 digitales—, una por registro.</p>
           <p class="fuente-pie">RUE · corte 30 de julio de 2026</p>
         </div>
-        <div data-od-id="cifra-mujeres">
-          <p class="display" style="font-size:clamp(56px,7vw,96px);margin:0;line-height:1;">63,2%</p>
-          <h3 style="font-size:20px;margin:8px 0 8px;">De los ecólogos del país son mujeres</h3>
-          <p style="margin:0 0 4px;color:var(--tinta-2);font-size:16px;">872 ecólogas y 507 ecólogos. La ecología es una de las profesiones técnicas más feminizadas del país y hasta hoy nadie lo había contado.</p>
+        <div class="cifra-suelta" data-od-id="cifra-mujeres">
+          <p class="display">63,2%</p>
+          <h3>De los ecólogos del país son mujeres</h3>
+          <p>872 ecólogas y 507 ecólogos. La ecología es una de las profesiones técnicas más feminizadas del país y hasta hoy nadie lo había contado.</p>
           <p class="fuente-pie">RUE · corte 30 de julio de 2026</p>
         </div>
       </div>
 
       <!-- B · Matrículas por año -->
-      <div id="grafico-matriculas" data-od-id="grafico-matriculas" style="margin-bottom:var(--space-12);">
+      <div id="grafico-matriculas" data-od-id="grafico-matriculas" class="bloque">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;">
           <h2>Matrículas profesionales tramitadas por año</h2>
         </div>
-        <p style="color:var(--tinta-2);max-width:62ch;margin:8px 0 4px;">El ritmo se derrumbó después de 2014 y lleva once años sin recuperarse. Pico en 2014 con 125 trámites; mínimo en 2023 con 61.</p>
-        <p class="fuente-pie" style="margin-bottom:24px;">RUE · corte 30 de julio de 2026</p>
+        <p class="intro">El ritmo se derrumbó después de 2014 y lleva once años sin recuperarse. Pico en 2014 con 125 trámites; mínimo en 2023 con 61.</p>
+        <p class="fuente-pie fuente-pie--head">RUE · corte 30 de julio de 2026</p>
 
         <div class="tabla-wrap">
           <div class="barchart" role="img" aria-label="Gráfico de barras de matrículas profesionales tramitadas entre 2010 y 2026: 2010 89, 2011 100, 2012 101, 2013 113, 2014 125, 2015 66, 2016 64, 2017 73, 2018 79, 2019 74, 2020 77, 2021 72, 2022 72, 2023 61, 2024 79, 2025 92, 2026 41 hasta julio." data-od-id="barchart-matriculas" style="min-width:760px;">
@@ -200,24 +200,24 @@
         </div>
 
         <div class="grid grid-2" style="margin-top:var(--space-6);gap:var(--space-6);">
-          <div class="dato-marca">
-            <p class="display" style="font-size:44px;margin:0;line-height:1;">106</p>
-            <p style="margin:2px 0 0;color:var(--tinta-2);">trámites al año · promedio 2010–2014</p>
+          <div class="dato-marca promedio">
+            <p class="display">106</p>
+            <p>trámites al año · promedio 2010–2014</p>
           </div>
-          <div class="dato-marca">
-            <p class="display" style="font-size:44px;margin:0;line-height:1;">74</p>
-            <p style="margin:2px 0 0;color:var(--tinta-2);">trámites al año · promedio 2015–2025. <strong style="color:var(--carbon);">Una caída del 30% que lleva once años sin revertirse.</strong></p>
+          <div class="dato-marca promedio">
+            <p class="display">74</p>
+            <p>trámites al año · promedio 2015–2025. <strong style="color:var(--carbon);">Una caída del 30% que lleva once años sin revertirse.</strong></p>
           </div>
         </div>
 
-        <p class="meta" style="margin-top:20px;max-width:70ch;">Nota metodológica: 11 registros no traían fecha de trámite en su campo y se recuperó a partir del número de tarjeta profesional, que codifica la fecha de expedición. Un registro conserva una fecha inconsistente y queda fuera de la serie: por eso el gráfico suma 1.378 y no 1.379.</p>
+        <p class="nota-bloque">Nota metodológica: 11 registros no traían fecha de trámite en su campo y se recuperó a partir del número de tarjeta profesional, que codifica la fecha de expedición. Un registro conserva una fecha inconsistente y queda fuera de la serie: por eso el gráfico suma 1.378 y no 1.379.</p>
       </div>
 
       <!-- C · Titulación por década -->
-      <div id="tabla-decadas" data-od-id="tabla-decadas" style="margin-bottom:var(--space-12);">
+      <div id="tabla-decadas" data-od-id="tabla-decadas" class="bloque">
         <h2>Se gradúan más ecólogos que nunca y las matrículas caen</h2>
-        <p style="color:var(--tinta-2);max-width:62ch;margin:8px 0 4px;">En los seis años corridos de esta década ya se han titulado casi tantos ecólogos como en toda la anterior. Es la brecha entre formarse y registrarse.</p>
-        <p class="fuente-pie" style="margin-bottom:24px;">RUE · corte 30 de julio de 2026</p>
+        <p class="intro">En los seis años corridos de esta década ya se han titulado casi tantos ecólogos como en toda la anterior. Es la brecha entre formarse y registrarse.</p>
+        <p class="fuente-pie fuente-pie--head">RUE · corte 30 de julio de 2026</p>
         <div class="tabla-wrap">
           <table class="data">
             <caption class="visually-hidden">Ecólogos titulados por década según la fecha del acta de grado</caption>
@@ -235,10 +235,10 @@
       </div>
 
       <!-- D · Dónde se formaron -->
-      <div data-od-id="tabla-ies" style="margin-bottom:var(--space-12);">
+      <div data-od-id="tabla-ies" class="bloque">
         <h2>Cinco instituciones han formado a los ecólogos de Colombia</h2>
-        <p style="color:var(--tinta-2);max-width:62ch;margin:8px 0 4px;">Cinco instituciones colombianas figuran en el registro como formadoras. Hoy cuatro mantienen el programa abierto: la que cerró es la Corporación Universitaria de Colombia IDEAS.</p>
-        <p class="fuente-pie" style="margin-bottom:24px;">RUE · corte 30 de julio de 2026</p>
+        <p class="intro">Cinco instituciones colombianas figuran en el registro como formadoras. Hoy cuatro mantienen el programa abierto: la que cerró es la Corporación Universitaria de Colombia IDEAS.</p>
+        <p class="fuente-pie fuente-pie--head">RUE · corte 30 de julio de 2026</p>
         <div class="tabla-wrap">
           <table class="data">
             <caption class="visually-hidden">Institución donde se formaron los ecólogos inscritos en el RUE</caption>
@@ -252,14 +252,14 @@
             </tbody>
           </table>
         </div>
-        <p class="meta" style="margin-top:16px;max-width:70ch;">Fuera de la cuadrícula, porque no son instituciones colombianas ni un dato de formación: título obtenido en el exterior, 13 registros (0,9%); sin dato de universidad, 11 registros (0,8%).</p>
+        <p class="nota-bloque">Fuera de la cuadrícula, porque no son instituciones colombianas ni un dato de formación: título obtenido en el exterior, 13 registros (0,9%); sin dato de universidad, 11 registros (0,8%).</p>
       </div>
 
       <!-- E · Dónde se estudia hoy -->
-      <div data-od-id="tabla-snies" style="margin-bottom:var(--space-12);">
+      <div data-od-id="tabla-snies" class="bloque">
         <h2>Dónde se estudia ecología hoy</h2>
-        <p style="color:var(--tinta-2);max-width:62ch;margin:8px 0 4px;">Cuatro programas activos con registro calificado. Cada código SNIES es verificable en el portal público del Ministerio de Educación.</p>
-        <p class="fuente-pie" style="margin-bottom:24px;">SNIES · Ministerio de Educación Nacional</p>
+        <p class="intro">Cuatro programas activos con registro calificado. Cada código SNIES es verificable en el portal público del Ministerio de Educación.</p>
+        <p class="fuente-pie fuente-pie--head">SNIES · Ministerio de Educación Nacional</p>
         <div class="tabla-wrap">
           <table class="data">
             <caption class="visually-hidden">Programas de ecología activos en Colombia según el SNIES</caption>
@@ -272,14 +272,14 @@
             </tbody>
           </table>
         </div>
-        <p class="meta" style="margin-top:16px;max-width:70ch;">La Universidad de Antioquia otorga el título de Ecólogo de Zonas Costeras, una denominación distinta a la de los otros tres programas.</p>
+        <p class="nota-bloque">La Universidad de Antioquia otorga el título de Ecólogo de Zonas Costeras, una denominación distinta a la de los otros tres programas.</p>
       </div>
 
       <!-- F · Dónde están -->
-      <div data-od-id="territorio" style="margin-bottom:var(--space-8);">
+      <div data-od-id="territorio" class="bloque">
         <h2>Tres territorios concentran el 85% de la profesión</h2>
-        <p style="color:var(--tinta-2);max-width:62ch;margin:8px 0 4px;">La ecología colombiana está concentrada donde están los cuatro programas. El resto del país tiene ecólogos, pero pocos.</p>
-        <p class="fuente-pie" style="margin-bottom:24px;">RUE · corte 30 de julio de 2026 · departamento de residencia</p>
+        <p class="intro">La ecología colombiana está concentrada donde están los cuatro programas. El resto del país tiene ecólogos, pero pocos.</p>
+        <p class="fuente-pie fuente-pie--head">RUE · corte 30 de julio de 2026 · departamento de residencia</p>
         <div class="tabla-wrap">
           <table class="data">
             <caption class="visually-hidden">Ecólogos por territorio de residencia</caption>
@@ -301,7 +301,7 @@
       <div data-od-id="hallazgos" style="margin-top:var(--space-12);border-top:1px solid var(--arena);padding-top:var(--space-8);">
         <p class="section-label">Hallazgos</p>
         <h2 style="max-width:24ch;">Lo que el registro deja ver</h2>
-        <p style="color:var(--tinta-2);max-width:66ch;margin:8px 0 var(--space-6);">Un hallazgo no es una opinión del Colegio ni una posición institucional: es la lectura de un dato que está en el registro y que cualquiera puede recalcular con el método publicado arriba. Esta página se actualiza cada vez que hay un corte nuevo del RUE.</p>
+        <p class="intro">Un hallazgo no es una opinión del Colegio ni una posición institucional: es la lectura de un dato que está en el registro y que cualquiera puede recalcular con el método publicado arriba. Esta página se actualiza cada vez que hay un corte nuevo del RUE.</p>
 
         <div class="grid grid-2" style="gap:var(--space-6);">
           <article class="card">
@@ -319,7 +319,7 @@
           </article>
         </div>
 
-        <p class="meta" style="margin-top:var(--space-5);max-width:70ch;">Los hallazgos describen el registro; no proponen una política ni fijan la posición del Colegio. Esa posición se construye en el <a href="tema.html">tema del mes</a> y la aprueba el <a href="metodo.html">Comité Editorial</a>.</p>
+        <p class="nota-bloque">Los hallazgos describen el registro; no proponen una política ni fijan la posición del Colegio. Esa posición se construye en el <a href="tema.html">tema del mes</a> y la aprueba el <a href="metodo.html">Comité Editorial</a>.</p>
       </div>
 
     </div>
