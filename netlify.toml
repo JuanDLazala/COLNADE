@@ -1,3 +1,9 @@
+# Este sitio de Netlify sirve ÚNICAMENTE el Observatorio COLNADE, y no es
+# producción: es el entorno donde se revisa y se aprueba. El Observatorio
+# definitivo vive en colnade.co/observatorio, integrado por el desarrollador
+# en la aplicación del Colegio. Por eso los canonical de cada página apuntan
+# a colnade.co y no a este dominio.
+
 [build]
   publish = "."
 
@@ -22,21 +28,24 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Observatorio — mismo tratamiento de caché que el resto del sitio
+# Entorno de revisión: nada de aquí debe indexarse nunca. El robots.txt ya
+# lo bloquea, pero este header lo hace cumplir aunque alguien lo levante.
 [[headers]]
-  for = "/observatorio/*"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-# La página de revisión interna nunca debe indexarse, ni siquiera
-# después de que se levante el Disallow global de robots.txt
-[[headers]]
-  for = "/observatorio/revision.html"
+  for = "/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
-# NO añadir aquí un redirect de "/observatorio" a "/observatorio/".
-# Netlify ignora la barra final al emparejar reglas, así que esa regla
-# también captura "/observatorio/" y se redirige a sí misma: bucle infinito
-# y ERR_TOO_MANY_REDIRECTS en toda la sección. Netlify ya resuelve la barra
-# final por su cuenta y sirve /observatorio/index.html sin ayuda.
+# El Observatorio subió de /observatorio/ a la raíz. Esta regla mantiene
+# vivos los enlaces que ya se repartieron —el que tiene Javier apunta a
+# /observatorio/revision.html— y los lleva a la página equivalente.
+# El destino usa :splat, que es lo que capturó el * de origen.
+[[redirects]]
+  from = "/observatorio/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# NO añadir un redirect de "/algo" a "/algo/". Netlify ignora la barra final
+# al emparejar reglas, así que esa regla también captura "/algo/" y lo manda
+# a sí mismo: bucle infinito y ERR_TOO_MANY_REDIRECTS. Netlify ya resuelve
+# la barra final por su cuenta.

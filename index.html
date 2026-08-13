@@ -1,2592 +1,382 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="COLNADE – Colegio Nacional de Ecólogos de Colombia. La ecología construye el país. Afíliate y accede al banco de empleo especializado para ecólogos." />
-  <meta property="og:title" content="COLNADE – Colegio Nacional de Ecólogos de Colombia" />
-  <meta property="og:description" content="La ecología construye el país. El gremio profesional que representa a los ecólogos colombianos." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="mq8otj7v-__1-ID-full-color.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="COLNADE – Colegio Nacional de Ecólogos de Colombia" />
-  <meta name="twitter:description" content="La ecología construye el país. El gremio profesional que representa a los ecólogos colombianos." />
-  <link rel="icon" type="image/png" href="mq8otj7v-__1-ID-full-color.png" />
-  <link rel="apple-touch-icon" href="mq8otj7v-__1-ID-full-color.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
-  <title>COLNADE – Colegio Nacional de Ecólogos de Colombia</title>
-  <style>
-    /* ================================================
-       DESIGN TOKENS — Marca COLNADE
-       ================================================ */
-    :root {
-      --green-dark:    #1a4a2e;
-      --green-mid:     #2d7a4f;
-      --green-light:   #6abf4b;
-      --earth:         #8b6914;
-      --earth-mid:     #a37c20;
-      --earth-light:   #c9a843;
-      --white:         #ffffff;
-      --off-white:     #f6f9f5;
-      --gray-50:       #f0f4ee;
-      --gray-100:      #e8ede5;
-      --gray-200:      #d4ddd0;
-      --gray-400:      #96a890;
-      --gray-600:      #566651;
-      --gray-800:      #28382a;
-      --text:          #182518;
-      --text-muted:    #3d5038;
-
-      --font-display:  'Inter', 'Segoe UI', 'Helvetica Neue', Arial, system-ui, sans-serif;
-      --font-body:     'Lora', Georgia, 'Times New Roman', serif;
-      --font-sans:     'Inter', 'Segoe UI', 'Helvetica Neue', Arial, system-ui, sans-serif;
-
-      --r-sm:   6px;
-      --r-md:   12px;
-      --r-lg:   20px;
-      --r-full: 999px;
-
-      --shadow-sm:  0 1px 4px rgba(26,74,46,.08);
-      --shadow-md:  0 4px 18px rgba(26,74,46,.13);
-      --shadow-lg:  0 10px 36px rgba(26,74,46,.20);
-
-      --ease: .22s ease;
-      --sec-pad: clamp(4rem, 8vw, 7rem);
-    }
-
-    /* ================================================
-       RESET
-       ================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a  { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    h1,h2,h3,h4,h5 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      line-height: 1.18;
-      color: var(--green-dark);
-    }
-
-    /* ================================================
-       LAYOUT HELPERS
-       ================================================ */
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 clamp(1.4rem, 5vw, 2rem);
-    }
-    @media (max-width: 480px) {
-      .container { padding: 0 1.5rem; }
-    }
-    .sec { padding: var(--sec-pad) 0; }
-    .tc  { text-align: center; }
-
-    /* ================================================
-       BUTTONS
-       ================================================ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .78rem 1.8rem;
-      border-radius: var(--r-full);
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: .92rem;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all var(--ease);
-      white-space: nowrap;
-      text-align: center;
-    }
-    @media (max-width: 480px) {
-      .btn { white-space: normal; }
-    }
-    .btn-green {
-      background: var(--green-light);
-      color: var(--green-dark);
-    }
-    .btn-green:hover {
-      background: #56b038;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 18px rgba(106,191,75,.38);
-    }
-    .btn-ghost-white {
-      background: transparent;
-      color: var(--white);
-      border-color: rgba(255,255,255,.55);
-    }
-    .btn-ghost-white:hover {
-      background: rgba(255,255,255,.10);
-      border-color: var(--white);
-    }
-    .btn-outline-dark {
-      background: transparent;
-      color: var(--green-dark);
-      border-color: var(--green-dark);
-    }
-    .btn-outline-dark:hover {
-      background: var(--green-dark);
-      color: var(--white);
-    }
-    .btn-earth {
-      background: var(--earth);
-      color: var(--white);
-    }
-    .btn-earth:hover {
-      background: #7a5b12;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(139,105,20,.35);
-    }
-    .btn-lg {
-      padding: 1rem 2.2rem;
-      font-size: 1rem;
-    }
-
-    /* ================================================
-       SECTION LABELS
-       ================================================ */
-    .s-label {
-      display: inline-block;
-      font-family: var(--font-display);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--green-mid);
-      margin-bottom: .9rem;
-    }
-    .s-title {
-      font-size: clamp(1.7rem, 3.8vw, 2.7rem);
-      letter-spacing: -.015em;
-      margin-bottom: .9rem;
-    }
-    .s-sub {
-      font-family: var(--font-body);
-      font-size: clamp(.95rem, 1.4vw, 1.1rem);
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 600px;
-    }
-    .s-header { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-
-    /* ================================================
-       REVEAL ANIMATION
-       ================================================ */
-    @media (prefers-reduced-motion: no-preference) {
-      .rv {
-        opacity: 0;
-        transform: translateY(22px);
-        transition: opacity .6s ease, transform .6s ease;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Observatorio COLNADE — análisis técnico y verificable sobre ecología en Colombia</title>
+<meta name="description" content="Unidad de análisis del Colegio Nacional de Ecólogos de Colombia. Cifras del Registro Único de Ecólogos, notas técnicas con fuente y un tema nuevo el 28 de cada mes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Carlito:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link rel="canonical" href="https://colnade.co/observatorio/">
+<meta name="theme-color" content="#24474c">
+<link rel="icon" type="image/png" href="mq8otj7v-__1-ID-full-color.png">
+<link rel="apple-touch-icon" href="mq8otj7v-__1-ID-full-color.png">
+<meta property="og:site_name" content="Observatorio COLNADE">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:url" content="https://colnade.co/observatorio/">
+<meta property="og:title" content="Observatorio COLNADE — análisis técnico y verificable sobre ecología en Colombia">
+<meta property="og:description" content="Unidad de análisis del Colegio Nacional de Ecólogos de Colombia. Cifras del Registro Único de Ecólogos, notas técnicas con fuente y un tema nuevo el 28 de cada mes.">
+<meta property="og:image" content="https://colnade.co/observatorio/og-observatorio.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Observatorio COLNADE — análisis técnico y verificable sobre ecología en Colombia">
+<meta name="twitter:description" content="Unidad de análisis del Colegio Nacional de Ecólogos de Colombia. Cifras del Registro Único de Ecólogos, notas técnicas con fuente y un tema nuevo el 28 de cada mes.">
+<meta name="twitter:image" content="https://colnade.co/observatorio/og-observatorio.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NGO",
+      "@id": "https://colnade.co/observatorio/#colnade",
+      "name": "Colegio Nacional de Ecólogos de Colombia",
+      "alternateName": "COLNADE",
+      "url": "https://colnade.co",
+      "email": "contacto@colnade.co",
+      "taxID": "900281223-5",
+      "areaServed": "CO",
+      "description": "Colegio profesional de los ecólogos de Colombia, creado al amparo de la Ley 1284 de 2009."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://colnade.co/observatorio/#observatorio",
+      "name": "Observatorio COLNADE",
+      "url": "https://colnade.co/observatorio/",
+      "parentOrganization": {
+        "@id": "https://colnade.co/observatorio/#colnade"
       }
-      .rv.on { opacity: 1; transform: none; }
-    }
-
-    /* ================================================
-       NAVIGATION
-       ================================================ */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--green-dark);
-      border-bottom: 2px solid rgba(45,122,79,.6);
-      box-shadow: 0 2px 24px rgba(0,0,0,.28);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 66px;
-      gap: 1rem;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-    .nav-logo {
-      height: 40px;
-      width: auto;
-      display: block;
-    }
-    @media (max-width: 767px) {
-      .nav-logo { height: 32px; }
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(.6rem, 2vw, 1.4rem);
-    }
-    .nav-link {
-      font-family: var(--font-display);
-      font-size: .82rem;
-      color: rgba(255,255,255,.78);
-      transition: color var(--ease);
-      padding: .25rem 0;
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      height: 2px;
-      background: var(--green-light);
-      transform: scaleX(0);
-      transition: transform var(--ease);
-      transform-origin: left;
-    }
-    .nav-link:hover { color: var(--white); }
-    .nav-link:hover::after { transform: scaleX(1); }
-    .nav-cta {
-      background: var(--green-light);
-      color: var(--green-dark);
-      padding: .55rem 1.2rem;
-      border-radius: var(--r-full);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: .82rem;
-      flex-shrink: 0;
-      transition: all var(--ease);
-    }
-    .nav-cta:hover {
-      background: #56b038;
-      transform: translateY(-1px);
-      box-shadow: 0 3px 12px rgba(106,191,75,.4);
-    }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-      padding: .4rem;
-    }
-
-    @media (max-width: 880px) {
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        top: 66px; left: 0; right: 0;
-        background: var(--green-dark);
-        padding: 1rem 1.5rem 1.5rem;
-        gap: .6rem;
-        border-top: 1px solid rgba(45,122,79,.5);
-        box-shadow: 0 8px 28px rgba(0,0,0,.3);
-      }
-      .nav-toggle { display: flex; }
-    }
-
-    /* ================================================
-       HERO
-       ================================================ */
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      background: var(--green-dark);
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 75% 65% at 65% 35%, rgba(45,122,79,.5) 0%, transparent 68%),
-        radial-gradient(ellipse 45% 60% at 5% 85%, rgba(106,191,75,.14) 0%, transparent 55%),
-        radial-gradient(ellipse 55% 50% at 100% 10%, rgba(26,74,46,.7) 0%, transparent 60%),
-        linear-gradient(155deg, #0c261a 0%, #1a4a2e 42%, #0d3020 100%);
-    }
-    /* Hero motif animations — GPU-only (transform/opacity) */
-    @keyframes wave-drift { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-2%)} }
-    @keyframes spiral-rot  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-    @keyframes leaf-up   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    @keyframes leaf-down { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
-    @keyframes hero-reveal { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-waves,.hero-arc,.hero-leaf-1,.hero-leaf-2,.hero-leaf-3,.hero-content { animation:none !important; }
-    }
-    @media (max-width: 480px) {
-      .hero-content { padding: 3rem 0 2.5rem; }
-      .hero-stats { gap: 1.5rem; padding-top: 1.8rem; }
-      .hstat-n { font-size: 1.6rem; }
-      .hero-ctas { flex-direction: column; align-items: stretch; }
-      .hero-ctas .btn { text-align: center; justify-content: center; }
-    }
-
-    .hero-texture {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .hero-waves {
-      position: absolute;
-      bottom: 0; left: -5%;
-      width: 110%;
-      pointer-events: none;
-      animation: wave-drift 20s ease-in-out infinite;
-    }
-    .hero-leaf {
-      position: absolute;
-      pointer-events: none;
-      opacity: .10;
-    }
-    .hero-leaf-1 { top:10%; right:20%; animation:leaf-up   13s ease-in-out infinite; }
-    .hero-leaf-2 { top:58%; right:5%;  animation:leaf-down 15s ease-in-out infinite 2s; }
-    .hero-leaf-3 { top:22%; left:2%;   animation:leaf-up   12s ease-in-out infinite 4s; }
-    .hero-arc {
-      position: absolute;
-      right: -80px; bottom: -100px;
-      width: 700px; height: 700px;
-      pointer-events: none;
-      opacity: .085;
-      animation: spiral-rot 60s linear infinite;
-    }
-    .hero-arc::before { display: none; }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: clamp(4rem, 9vh, 7rem) 0;
-      max-width: 820px;
-      animation: hero-reveal .8s ease forwards;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      font-family: var(--font-display);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--green-light);
-      margin-bottom: 1.4rem;
-      padding: .38rem 1rem;
-      border: 1px solid rgba(106,191,75,.35);
-      border-radius: var(--r-full);
-      background: rgba(106,191,75,.08);
-    }
-    .hero h1 {
-      color: var(--white);
-      font-size: clamp(2.4rem, 5.8vw, 4.4rem);
-      font-weight: 800;
-      letter-spacing: -.025em;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--green-light);
-    }
-    .hero-sub {
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      color: rgba(255,255,255,.8);
-      max-width: 580px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      margin-bottom: 3.5rem;
-    }
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
-    .hstat { display: flex; flex-direction: column; gap: .2rem; }
-    .hstat-n {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--green-light);
-      font-variant-numeric: tabular-nums;
-      line-height: 1;
-    }
-    .hstat-l {
-      font-family: var(--font-display);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: rgba(255,255,255,.55);
-    }
-
-    /* ================================================
-       WHY COLNADE
-       ================================================ */
-    .why {
-      background: var(--off-white);
-      position: relative;
-      overflow: hidden;
-    }
-    /* Trama de fondo — logo monocromo verde al 10% */
-    .why::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: clamp(500px, 70vw, 860px);
-      height: clamp(500px, 70vw, 860px);
-      background-image: url('mq8otj8t-__2-ID-Monotono-verde.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: .10;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .why .container { position: relative; z-index: 1; }
-
-    /* Logo full-color destacado — animación */
-    @keyframes why-logo-in {
-      from { opacity: 0; transform: scale(.88) translateY(14px); }
-      to   { opacity: 1; transform: scale(1)  translateY(0);     }
-    }
-    @keyframes why-logo-float {
-      0%,100% { transform: translateY(0px);  }
-      50%      { transform: translateY(-9px); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .why-logo-wrap img { animation: none !important; }
-    }
-
-    .why-logo-wrap {
-      display: flex;
-      justify-content: center;
-      margin: 2.6rem 0 clamp(2.2rem, 4.5vw, 3.6rem);
-    }
-    .why-logo-wrap img {
-      width: clamp(240px, 40vw, 440px);
-      height: auto;
-      filter: drop-shadow(0 8px 28px rgba(26,74,46,.22));
-      animation:
-        why-logo-in    .7s cubic-bezier(.22,.68,0,1.2) both,
-        why-logo-float  5s ease-in-out infinite 1s;
-      transition: filter .35s ease;
-    }
-    .why-logo-wrap img:hover {
-      filter: drop-shadow(0 14px 42px rgba(45,122,79,.42));
-      animation-play-state: paused;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
-      gap: 1.4rem;
-    }
-    .why-card {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: 2.2rem;
-      border: 1px solid var(--gray-100);
-      box-shadow: var(--shadow-sm);
-      transition: all var(--ease);
-      position: relative;
-      overflow: hidden;
-    }
-    .why-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--green-mid), var(--green-light));
-    }
-    .why-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(106,191,75,.4);
-    }
-    .why-icon {
-      width: 54px;
-      height: 54px;
-      background: var(--gray-50);
-      border-radius: var(--r-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.4rem;
-      color: var(--green-mid);
-    }
-    .why-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: .65rem;
-      color: var(--green-dark);
-    }
-    .why-card p {
-      font-size: .92rem;
-      color: var(--text-muted);
-      line-height: 1.68;
-    }
-    .why-cta { margin-top: 3rem; text-align: center; }
-
-    /* ================================================
-       AFFILIATION
-       ================================================ */
-    .aff { background: var(--green-dark); }
-    .aff .s-label { color: var(--green-light); }
-    .aff .s-title { color: var(--white); }
-    .aff .s-sub   { color: rgba(255,255,255,.72); }
-    .aff-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2.5rem, 6vw, 5rem);
-      align-items: start;
-    }
-    .steps { display: flex; flex-direction: column; gap: 2rem; }
-    .step { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .step-n {
-      flex-shrink: 0;
-      width: 44px; height: 44px;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.1rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .step-body h4 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: .97rem;
-      color: var(--white);
-      margin-bottom: .3rem;
-    }
-    .step-body p {
-      font-size: .88rem;
-      color: rgba(255,255,255,.65);
-      line-height: 1.6;
-    }
-    .f-box {
-      background: rgba(255,255,255,.97);
-      border: 1.5px solid rgba(45,122,79,.18);
-      border-radius: var(--r-lg);
-      padding: clamp(1.5rem, 3vw, 2.4rem);
-      box-shadow: var(--shadow-lg);
-    }
-    .f-box h3 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      color: var(--green-dark);
-      margin-bottom: 1.4rem;
-    }
-    .fg {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .9rem;
-    }
-    .ff { display: flex; flex-direction: column; gap: .35rem; }
-    .ff.full { grid-column: 1 / -1; }
-    .ff label {
-      font-family: var(--font-display);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.65);
-    }
-    .ff input, .ff select, .ff textarea {
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--r-sm);
-      padding: .72rem 1rem;
-      color: var(--white);
-      font-family: var(--font-sans);
-      font-size: .88rem;
-      transition: border-color var(--ease), background var(--ease);
-      outline: none;
-      width: 100%;
-    }
-    .ff input::placeholder, .ff textarea::placeholder { color: rgba(255,255,255,.3); }
-    .ff input:focus, .ff select:focus, .ff textarea:focus {
-      border-color: var(--green-light);
-      background: rgba(255,255,255,.13);
-    }
-    .ff input.err, .ff select.err { border-color: #f87171; }
-    .f-err { font-family: var(--font-sans); font-size: .72rem; color: #fca5a5; display: none; }
-    .f-err.show { display: block; }
-    .f-privacy {
-      font-family: var(--font-sans);
-      font-size: .7rem;
-      color: rgba(255,255,255,.45);
-      text-align: center;
-      margin-top: .7rem;
-    }
-
-    @media (max-width: 860px) {
-      .aff-layout { grid-template-columns: 1fr; }
-      .fg { grid-template-columns: 1fr; }
-      .ff.full { grid-column: 1; }
-    }
-
-    /* ================================================
-       JOB BOARD
-       ================================================ */
-    .jobs { background: var(--white); }
-    .jobs-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 2.4rem;
-    }
-    .jobs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-      gap: 1.15rem;
-      margin-bottom: 2.5rem;
-    }
-    .jcard {
-      border: 1px solid var(--gray-100);
-      border-radius: var(--r-md);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: .95rem;
-      transition: all var(--ease);
-      background: var(--white);
-    }
-    .jcard:hover {
-      border-color: var(--green-light);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
-    }
-    .jcard-top { display: flex; gap: .9rem; align-items: center; }
-    .jlogo {
-      width: 46px; height: 46px;
-      border-radius: var(--r-sm);
-      background: var(--gray-50);
-      border: 1px solid var(--gray-100);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: .72rem;
-      color: var(--green-mid);
-      flex-shrink: 0;
-      letter-spacing: .04em;
-    }
-    .jmeta { flex: 1; min-width: 0; }
-    .jco {
-      font-family: var(--font-display);
-      font-size: .75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: .1rem;
-    }
-    .jrole {
-      font-family: var(--font-display);
-      font-size: .97rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .jtags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .jtag {
-      font-family: var(--font-display);
-      font-size: .68rem;
-      font-weight: 600;
-      padding: .25rem .65rem;
-      border-radius: var(--r-full);
-      background: var(--gray-50);
-      color: var(--gray-600);
-    }
-    .jtag.hi { background: rgba(106,191,75,.13); color: var(--green-mid); }
-    .jloc {
-      font-family: var(--font-sans);
-      font-size: .8rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: .3rem;
-    }
-    .jdate {
-      font-family: var(--font-display);
-      font-size: .72rem;
-      font-weight: 600;
-      color: var(--earth);
-    }
-    .jobs-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-
-    /* ================================================
-       WHO WE ARE
-       ================================================ */
-    .about { background: var(--gray-50); }
-    .about-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: clamp(2.5rem, 6vw, 5rem);
-      align-items: start;
-    }
-    .founding {
-      background: var(--green-dark);
-      border-radius: var(--r-md);
-      padding: 2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .founding-yr {
-      font-family: var(--font-display);
-      font-size: 3.2rem;
-      font-weight: 800;
-      color: var(--green-light);
-      display: block;
-      line-height: 1;
-      margin-bottom: .4rem;
-    }
-    .founding-l {
-      font-family: var(--font-display);
-      font-size: .68rem;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: rgba(255,255,255,.55);
-    }
-    .tl { display: flex; flex-direction: column; }
-    .tl-item {
-      display: flex;
-      gap: 1rem;
-      padding-bottom: 1.2rem;
-      position: relative;
-    }
-    .tl-item:not(:last-child)::before {
-      content: '';
-      position: absolute;
-      left: .38rem; top: 1.1rem; bottom: 0;
-      width: 2px;
-      background: var(--gray-200);
-    }
-    .tl-dot {
-      width: .9rem; height: .9rem;
-      background: var(--green-mid);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: .22rem;
-    }
-    .tl-yr {
-      font-family: var(--font-display);
-      font-size: .68rem;
-      font-weight: 700;
-      color: var(--green-mid);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-    }
-    .tl-txt {
-      font-family: var(--font-sans);
-      font-size: .82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .about-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 2.8rem;
-    }
-    .board-ttl {
-      font-size: 1.2rem;
-      color: var(--green-dark);
-      margin-bottom: 1.4rem;
-    }
-    .board-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.2rem;
-    }
-    .bcard { text-align: center; }
-    .bphoto {
-      width: 76px; height: 76px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
-      margin: 0 auto .7rem;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--white);
-      border: 3px solid var(--white);
-      box-shadow: var(--shadow-md);
-    }
-    .bname {
-      font-family: var(--font-display);
-      font-size: .88rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: .15rem;
-    }
-    .brole {
-      font-family: var(--font-sans);
-      font-size: .72rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    @media (max-width: 760px) {
-      .about-layout { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================
-       FOR COMPANIES
-       ================================================ */
-    .companies {
-      background: linear-gradient(148deg, #6b4c0c 0%, var(--earth) 55%, #7a5b12 100%);
-    }
-    .co-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2.5rem, 6vw, 5rem);
-      align-items: center;
-    }
-    .companies .s-label { color: rgba(255,255,255,.6); }
-    .companies .s-title { color: var(--white); }
-    .companies .s-sub { color: rgba(255,255,255,.78); }
-    .co-benefits { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.8rem; }
-    .benefit {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      font-family: var(--font-sans);
-      font-size: .92rem;
-      color: rgba(255,255,255,.88);
-    }
-    .bchk {
-      width: 22px; height: 22px;
-      background: rgba(255,255,255,.2);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: .72rem;
-      color: var(--white);
-    }
-    .co-form {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: clamp(1.5rem, 3vw, 2.4rem);
-    }
-    .co-form h3 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      color: var(--green-dark);
-      margin-bottom: 1.4rem;
-    }
-    .co-form .ff label { color: var(--text-muted); }
-    .co-form .ff input,
-    .co-form .ff select,
-    .co-form .ff textarea {
-      background: var(--gray-50);
-      border-color: var(--gray-200);
-      color: var(--text);
-    }
-    .co-form .ff input::placeholder { color: var(--gray-400); }
-    .co-form .ff input:focus,
-    .co-form .ff select:focus {
-      border-color: var(--earth);
-      background: var(--white);
-    }
-    .co-form .ff select { cursor: pointer; }
-    .co-form .f-err { color: #dc2626; }
-
-    @media (max-width: 760px) {
-      .co-layout { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================
-       NEWS
-       ================================================ */
-    .news { background: var(--white); }
-    .news-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2.4rem;
-    }
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.4rem;
-    }
-    .ncard {
-      border: 1px solid var(--gray-100);
-      border-radius: var(--r-md);
-      overflow: hidden;
-      transition: all var(--ease);
-      background: var(--white);
-    }
-    .ncard:hover {
-      border-color: var(--green-mid);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-4px);
-    }
-    .nimg {
-      height: 178px;
-      position: relative;
-      overflow: hidden;
-    }
-    .nimg-bg {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .nimg-1 { background: linear-gradient(145deg, #0d2e1a, #1a4a2e); }
-    .nimg-2 { background: linear-gradient(145deg, #1a3a0d, #2d6a20); }
-    .nimg-3 { background: linear-gradient(145deg, #2e2a0d, #4a4420); }
-    .ncat {
-      position: absolute;
-      top: .9rem; left: .9rem;
-      font-family: var(--font-display);
-      font-size: .66rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      padding: .28rem .65rem;
-      border-radius: var(--r-full);
-      background: rgba(255,255,255,0.92);
-      color: var(--green-mid);
-    }
-    .nbody { padding: 1.4rem; }
-    .ndate {
-      font-family: var(--font-display);
-      font-size: .68rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: .45rem;
-    }
-    .ntitle {
-      font-family: var(--font-display);
-      font-size: .98rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.35;
-      margin-bottom: .65rem;
-    }
-    .nexcerpt {
-      font-size: .85rem;
-      color: var(--text-muted);
-      line-height: 1.62;
-    }
-    .nmore {
-      display: inline-flex;
-      align-items: center;
-      gap: .3rem;
-      margin-top: .9rem;
-      font-family: var(--font-display);
-      font-size: .78rem;
-      font-weight: 700;
-      color: var(--green-mid);
-      transition: gap var(--ease);
-    }
-    .ncard:hover .nmore { gap: .55rem; }
-
-    /* ================================================
-       MEMBER PORTAL / SERVICIOS AL AFILIADO
-       ================================================ */
-    .portal { background: #eaf4ed; }
-    .portal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-    .portal-card {
-      background: var(--white);
-      border-radius: var(--r-lg);
-      padding: clamp(1.8rem, 3vw, 2.5rem);
-      box-shadow: var(--shadow-md);
-      border: 1.5px solid rgba(45,122,79,.14);
-    }
-    .portal-card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: var(--r-md);
-      background: linear-gradient(135deg, #d4eddb 0%, #b6e0c0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.2rem;
-    }
-    .portal-card h3 {
-      font-size: 1.18rem;
-      margin-bottom: .5rem;
-      color: var(--green-dark);
-    }
-    .portal-card .card-desc {
-      font-size: .9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.4rem;
-      font-family: var(--font-sans);
-    }
-    .portal-note {
-      display: flex;
-      align-items: flex-start;
-      gap: .5rem;
-      background: #fff8e6;
-      border-left: 3px solid var(--earth-light);
-      border-radius: 0 var(--r-sm) var(--r-sm) 0;
-      padding: .75rem 1rem;
-      font-family: var(--font-sans);
-      font-size: .82rem;
-      color: var(--earth);
-      margin-bottom: 1.4rem;
-      line-height: 1.5;
-    }
-    .portal-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      background: rgba(26,74,46,.08);
-      border: 1px solid rgba(26,74,46,.16);
-      border-radius: var(--r-full);
-      padding: .32rem .85rem;
-      font-family: var(--font-display);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--green-mid);
-      margin-bottom: 1.1rem;
-    }
-    .portal-form .ff label { color: var(--text-muted); }
-    .portal-form .ff input,
-    .portal-form .ff textarea {
-      background: var(--gray-50);
-      border-color: var(--gray-200);
-      color: var(--text);
-    }
-    .portal-form .ff input::placeholder { color: var(--gray-400); }
-    .portal-form .ff input:focus { border-color: var(--green-mid); background: var(--white); }
-    .portal-form .f-err { color: #dc2626; }
-    .form-ok {
-      align-items: center;
-      gap: .6rem;
-      background: #d4eddb;
-      border: 1px solid rgba(45,122,79,.25);
-      border-radius: var(--r-sm);
-      padding: .9rem 1.1rem;
-      font-family: var(--font-sans);
-      font-size: .88rem;
-      color: var(--green-dark);
-      font-weight: 600;
-    }
-    @media (max-width: 760px) {
-      .portal-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================
-       T'SUENA PLATFORM
-       ================================================ */
-    .tsuena {
-      background: #0d2b1c;
-      position: relative; overflow: hidden;
-      color: rgba(255,255,255,.9);
-      padding: var(--sec-pad) 0 calc(var(--sec-pad) + 3rem);
-    }
-    .tsuena h2,.tsuena h3,.tsuena h4 { color: var(--white); }
-    .tsuena-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 65% 50% at 85% 28%, rgba(45,122,79,.22) 0%, transparent 58%),
-        radial-gradient(ellipse 45% 55% at 8% 80%, rgba(106,191,75,.08) 0%, transparent 52%);
-      pointer-events: none;
-    }
-    .tsuena-waves-bg {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 68px; display: flex; align-items: flex-end; gap: 2px;
-      padding: 0 .5rem; opacity: .07; pointer-events: none; overflow: hidden;
-    }
-    .tsuena-waves-bg span {
-      flex: 0 0 5px; background: var(--green-light);
-      border-radius: 3px 3px 0 0;
-      animation: tsWave 2.2s ease-in-out infinite;
-    }
-    @keyframes tsWave { 0%,100%{transform:scaleY(.18)} 50%{transform:scaleY(1)} }
-    .tsuena-header { position: relative; z-index: 2; max-width: 860px; margin-bottom: clamp(2.5rem,5vw,4rem); }
-    .tsuena-eyebrow {
-      display: inline-flex; align-items: center; gap: .7rem;
-      font-family: var(--font-display); font-size: .68rem; font-weight: 700;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--green-light); margin-bottom: 1.4rem;
-    }
-    .tsuena-eyebrow::before { content:''; display:inline-block; width:28px; height:2px; background:var(--green-light); }
-    .tsuena-headline {
-      font-size: clamp(1.75rem,3.8vw,2.9rem); font-weight: 800;
-      letter-spacing: -.028em; line-height: 1.15;
-      color: var(--white); margin-bottom: 1.4rem;
-    }
-    .tsuena-headline em { font-style: normal; color: var(--green-light); }
-    .tsuena-subline {
-      font-family: var(--font-display); font-size: clamp(.95rem,1.6vw,1.2rem);
-      color: rgba(255,255,255,.55); font-weight: 500;
-    }
-    .tsuena-subline strong { color: var(--green-light); font-weight: 700; }
-    .tsuena-tabs {
-      position: relative; z-index: 2; display: flex;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      margin-bottom: clamp(2rem,4vw,3rem);
-      overflow-x: auto; scrollbar-width: none;
-    }
-    .tsuena-tabs::-webkit-scrollbar { display: none; }
-    .tsuena-tab {
-      display: flex; align-items: center; gap: .55rem;
-      padding: .9rem 1.8rem;
-      font-family: var(--font-display); font-size: .83rem; font-weight: 600;
-      letter-spacing: .035em; color: rgba(255,255,255,.38);
-      cursor: pointer; border: none; background: none;
-      border-bottom: 2px solid transparent; margin-bottom: -1px;
-      transition: all .2s ease; white-space: nowrap; flex-shrink: 0;
-    }
-    .tsuena-tab:hover { color: rgba(255,255,255,.7); }
-    .tsuena-tab.active { color: var(--green-light); border-bottom-color: var(--green-light); }
-    .tsuena-panels { position: relative; z-index: 2; }
-    .tsuena-panel { display: none; }
-    .tsuena-panel.active { display: block; animation: tsPanelIn .28s ease; }
-    @keyframes tsPanelIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
-    /* Module A — Videos */
-    .tsuena-video-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: clamp(.8rem,2vw,1.4rem); margin-bottom: 2.2rem;
-    }
-    .ts-vid-card {
-      position: relative; border-radius: var(--r-md);
-      overflow: hidden; aspect-ratio: 16/10;
-      cursor: pointer; background: #163825;
-    }
-    .ts-vid-thumb { position: absolute; inset: 0; }
-    .ts-vid-thumb-img {
-      width: 100%; height: 100%;
-      background-size: cover; background-position: center; opacity: .55;
-      transition: opacity .3s ease, transform .3s ease;
-    }
-    .ts-vid-card:hover .ts-vid-thumb-img { opacity: .72; transform: scale(1.05); }
-    .ts-vid-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(7,24,14,.92) 0%, rgba(7,24,14,.06) 60%);
-    }
-    .ts-vid-play {
-      position: absolute; top: 42%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 54px; height: 54px; border-radius: 50%;
-      background: rgba(106,191,75,.14); border: 2px solid rgba(106,191,75,.48);
-      display: flex; align-items: center; justify-content: center;
-      transition: all .22s ease; backdrop-filter: blur(4px);
-    }
-    .ts-vid-card:hover .ts-vid-play {
-      background: rgba(106,191,75,.28); border-color: var(--green-light);
-      transform: translate(-50%,-50%) scale(1.1);
-    }
-    .ts-vid-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.1rem; }
-    .ts-vid-region { font-family: var(--font-display); font-size: .6rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--green-light); margin-bottom: .25rem; }
-    .ts-vid-eco   { font-family: var(--font-display); font-size: .68rem; color: rgba(255,255,255,.5); margin-bottom: .35rem; }
-    .ts-vid-name  { font-family: var(--font-display); font-size: .92rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
-    .ts-vid-badge { display: inline-flex; align-items: center; gap: .32rem; background: rgba(106,191,75,.14); border: 1px solid rgba(106,191,75,.28); border-radius: var(--r-full); padding: .18rem .52rem; font-family: var(--font-display); font-size: .56rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--green-light); }
-    /* Module B — Map */
-    .tsuena-map-wrap { display: grid; grid-template-columns: 1fr 360px; gap: 3rem; align-items: start; }
-    .tsuena-map-label { font-family: var(--font-display); font-size: clamp(1.1rem,2vw,1.55rem); font-weight: 700; color: var(--white); margin-bottom: .4rem; }
-    .tsuena-map-hint { font-family: var(--font-display); font-size: .78rem; color: rgba(255,255,255,.38); margin-bottom: 1.6rem; display: flex; align-items: center; gap: .5rem; }
-    .ts-hint-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); animation: pulse 1.6s ease-in-out infinite; flex-shrink: 0; }
-    .colombia-map { width: 100%; max-width: 320px; cursor: pointer; display: block; }
-    .map-region { transition: opacity .22s ease, filter .22s ease; cursor: pointer; }
-    .map-region:hover, .map-region.ts-r-active { filter: brightness(1.4) drop-shadow(0 0 9px rgba(106,191,75,.5)); }
-    .map-region-lbl { font-family: var(--font-display); font-size: 9px; fill: rgba(255,255,255,.5); pointer-events: none; font-weight: 600; letter-spacing: .03em; }
-    .tsuena-sound-panel { background: rgba(45,122,79,.09); border: 1px solid rgba(106,191,75,.16); border-radius: var(--r-lg); padding: 2rem 1.8rem; min-height: 240px; }
-    .ts-idle { text-align: center; padding: 2rem 0; color: rgba(255,255,255,.3); font-family: var(--font-display); font-size: .86rem; }
-    .ts-idle-icon { display: block; margin: 0 auto .8rem; opacity: .25; }
-    .ts-sound-info { display: none; }
-    .ts-sound-info.on { display: block; }
-    .ts-sound-biome { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: .25rem; }
-    .ts-sound-eco { font-size: .78rem; color: var(--green-light); margin-bottom: 1.2rem; font-family: var(--font-display); }
-    .ts-soundwave { display: flex; align-items: center; gap: 3px; height: 42px; margin-bottom: 1.2rem; }
-    .ts-soundwave span { flex: 1; background: var(--green-light); border-radius: 2px; opacity: .65; animation: tsWavePlay .65s ease-in-out infinite; }
-    .ts-soundwave span:nth-child(2n) { animation-delay: .09s; }
-    .ts-soundwave span:nth-child(3n) { animation-delay: .2s; }
-    .ts-soundwave span:nth-child(5n) { animation-delay: .35s; }
-    .ts-soundwave span:nth-child(7n) { animation-delay: .55s; }
-    @keyframes tsWavePlay { 0%,100%{transform:scaleY(.3)} 50%{transform:scaleY(1)} }
-    .ts-sound-desc { font-size: .84rem; color: rgba(255,255,255,.55); line-height: 1.65; font-family: var(--font-display); }
-    /* Module C — CTA cards */
-    .tsuena-cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .tsuena-cta-card { border-radius: var(--r-lg); padding: 2.4rem 2.2rem; position: relative; overflow: hidden; }
-    .tsuena-cta-empresa { background: rgba(139,105,20,.18); border: 1px solid rgba(201,168,67,.22); }
-    .tsuena-cta-educ    { background: rgba(45,122,79,.18);  border: 1px solid rgba(106,191,75,.22); }
-    .tsuena-cta-tag { font-family: var(--font-display); font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1.1rem; display: block; }
-    .tsuena-cta-empresa .tsuena-cta-tag { color: var(--earth-light); }
-    .tsuena-cta-educ    .tsuena-cta-tag { color: var(--green-light); }
-    .tsuena-cta-h { font-size: clamp(1.05rem,2vw,1.4rem); font-weight: 700; color: var(--white); margin-bottom: .8rem; line-height: 1.28; }
-    .tsuena-cta-p { font-size: .87rem; color: rgba(255,255,255,.55); line-height: 1.68; margin-bottom: 1.7rem; font-family: var(--font-display); }
-    .btn-ts-earth { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: var(--earth-light); border: 2px solid rgba(201,168,67,.42); border-radius: var(--r-full); font-family: var(--font-display); font-weight: 600; font-size: .87rem; padding: .68rem 1.5rem; cursor: pointer; transition: all .2s ease; text-decoration: none; }
-    .btn-ts-earth:hover { background: rgba(139,105,20,.28); border-color: var(--earth-light); }
-    .btn-ts-lime { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: var(--green-light); border: 2px solid rgba(106,191,75,.4); border-radius: var(--r-full); font-family: var(--font-display); font-weight: 600; font-size: .87rem; padding: .68rem 1.5rem; cursor: pointer; transition: all .2s ease; text-decoration: none; }
-    .btn-ts-lime:hover { background: rgba(106,191,75,.14); border-color: var(--green-light); }
-    @media (max-width: 920px) {
-      .tsuena-video-grid { grid-template-columns: 1fr 1fr; }
-      .tsuena-map-wrap { grid-template-columns: 1fr; }
-      .colombia-map { max-width: 290px; margin: 0 auto; }
-    }
-    @media (max-width: 540px) {
-      .tsuena-video-grid { grid-template-columns: 1fr; }
-      .tsuena-tab { padding: .72rem .95rem; font-size: .75rem; }
-      .tsuena-cta-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================
-       IES ALIADAS
-       ================================================ */
-    .ies { background: var(--gray-50, #f8faf8); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
-    .ies-label-row {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .ies-label {
-      display: block;
-      font-family: var(--font-display);
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--green-mid);
-      margin-bottom: .55rem;
-    }
-    .ies-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: .4rem;
-      line-height: 1.2;
-    }
-    .ies-desc {
-      font-size: .85rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-    .ies-strip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: clamp(2.5rem, 6vw, 5rem);
-      margin-top: 2.4rem;
-    }
-    .ies-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .75rem;
-      opacity: 0.72;
-      transition: opacity var(--ease);
-    }
-    .ies-logo:hover { opacity: 1; }
-    .ies-logo img {
-      height: 80px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
-      filter: grayscale(30%);
-      transition: filter var(--ease);
-    }
-    .ies-logo:hover img { filter: grayscale(0%); }
-    .ies-logo span {
-      font-size: .72rem;
-      font-weight: 600;
-      font-family: var(--font-display);
-      color: var(--text-muted);
-      text-align: center;
-      max-width: 140px;
-      line-height: 1.35;
-    }
-    @media (max-width: 600px) {
-      .ies-strip { gap: 2rem; }
-      .ies-logo img { height: 60px; }
-    }
-
-    /* ================================================
-       FOOTER
-       ================================================ */
-    .footer { background: var(--gray-800); color: rgba(255,255,255,.7); }
-    .footer-top {
-      padding: clamp(3rem, 6vw, 5rem) 0 2.5rem;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 2.2rem;
-    }
-    .footer-logo-n {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.35rem;
-      color: var(--white);
-      letter-spacing: .06em;
-    }
-    .footer-logo-n span { color: var(--green-light); }
-    .footer-tag {
-      font-family: var(--font-display);
-      font-size: .68rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: rgba(255,255,255,.38);
-      margin: .2rem 0 1rem;
-    }
-    .footer-desc {
-      font-family: var(--font-sans);
-      font-size: .84rem;
-      color: rgba(255,255,255,.55);
-      line-height: 1.65;
-      max-width: 270px;
-    }
-    .socials {
-      display: flex;
-      gap: .65rem;
-      margin-top: 1.5rem;
-    }
-    .soc {
-      width: 36px; height: 36px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--r-sm);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.6);
-      transition: all var(--ease);
-    }
-    .soc:hover {
-      background: var(--green-mid);
-      border-color: var(--green-mid);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-    .fcol-t {
-      font-family: var(--font-display);
-      font-size: .68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: var(--white);
-      margin-bottom: 1.15rem;
-    }
-    .flinks { display: flex; flex-direction: column; gap: .55rem; }
-    .flink {
-      font-family: var(--font-sans);
-      font-size: .84rem;
-      color: rgba(255,255,255,.58);
-      transition: color var(--ease);
-    }
-    .flink:hover { color: var(--green-light); }
-    .femail {
-      font-family: var(--font-sans);
-      font-size: .84rem;
-      color: var(--green-light);
-      transition: opacity var(--ease);
-    }
-    .femail:hover { opacity: .8; }
-    .footer-bot {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 1.2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: .65rem;
-    }
-    .flegal {
-      font-family: var(--font-sans);
-      font-size: .7rem;
-      color: rgba(255,255,255,.35);
-    }
-    .flegal a { text-decoration: underline; color: inherit; }
-
-    @media (max-width: 760px) {
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .footer-top > div:first-child { grid-column: 1 / -1; }
-    }
-    @media (max-width: 460px) {
-      .footer-top { grid-template-columns: 1fr; }
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--green-light);
-      outline-offset: 3px;
-    }
-
-    /* ================================================
-       BOCETO BANNER
-       ================================================ */
-    .boceto-bar {
-      background: #f59e0b;
-      color: #1c1917;
-      padding: .6rem 3rem .6rem 1rem;
-      font-family: var(--font-display);
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .01em;
-      position: relative;
-      z-index: 300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .65rem;
-      flex-wrap: wrap;
-      line-height: 1.4;
-      text-align: center;
-    }
-    .boceto-bar strong { font-weight: 800; letter-spacing: .06em; }
-    .boceto-bar svg { flex-shrink: 0; }
-    .boceto-dismiss {
-      position: absolute;
-      right: .9rem;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,.12);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      color: #1c1917;
-      font-size: .8rem;
-      line-height: 1;
-      padding: .22rem .42rem;
-      transition: background .18s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .boceto-dismiss:hover { background: rgba(0,0,0,.22); }
-    @media (max-width: 600px) {
-      .boceto-bar { font-size: .72rem; padding: .6rem 2.5rem .6rem .9rem; }
-    }
-  </style>
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://colnade.co/observatorio/#website",
+      "url": "https://colnade.co/observatorio/",
+      "name": "Observatorio COLNADE",
+      "inLanguage": "es-CO",
+      "publisher": {
+        "@id": "https://colnade.co/observatorio/#observatorio"
+      },
+      "description": "Unidad de análisis del Colegio Nacional de Ecólogos de Colombia. Análisis técnico y verificable sobre ecología en Colombia."
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/observatorio.css">
 </head>
-<body>
+<body class="modo-revision">
 
-<!-- ====================================================
-     BOCETO BANNER — eliminar antes de publicación oficial
-     ==================================================== -->
-<div class="boceto-bar" id="boceto-bar" role="alert" aria-live="polite">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-  <span><strong>BOCETO DE DISEÑO</strong> — Esta no es la página oficial de COLNADE. Es una propuesta para revisión del cliente. El contenido es de ejemplo.</span>
-  <button class="boceto-dismiss" id="boceto-dismiss" aria-label="Cerrar aviso de boceto">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
+<div class="barra-revision solo-revision" data-od-id="barra-revision">
+  <div class="container barra-revision__inner">
+    <strong>Versión de revisión</strong>
+    <span>Las fotografías de autor y el cuerpo de las columnas son material de muestra para aprobar la estructura y el diseño. Los titulares, los temas y todas las cifras son definitivos.</span>
+  </div>
 </div>
 
-<header>
-  <nav class="nav" aria-label="Navegación principal">
-    <div class="container nav-inner">
-      <a href="#inicio" class="nav-brand" aria-label="COLNADE – Inicio">
-        <img src="mq8otjbm-__8-ID-negativo-blanco--ST.png" alt="COLNADE – Colegio Nacional de Ecólogos de Colombia" class="nav-logo">
-      </a>
-      <ul class="nav-links" id="nav-menu" role="list">
-        <li><a href="#quienes-somos" class="nav-link">Quiénes Somos</a></li>
-        <li><a href="#banco-empleo" class="nav-link">Banco de Empleo</a></li>
-        <li><a href="#noticias" class="nav-link">Noticias</a></li>
-        <li><a href="#portal-afiliado" class="nav-link">Portal Afiliados</a></li>
-        <li><a href="#tsuena" class="nav-link" style="color:var(--green-light);font-weight:700">T'SUENA</a></li>
-        <li><a href="#afiliacion" class="nav-cta">Afíliate</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
-    </div>
-  </nav>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header" data-od-id="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" data-od-id="brand-link">
+      <img src="mq8otja6-__5-ID-fullcolor-ST.png" alt="COLNADE" style="height:34px;width:auto;object-fit:contain;">
+      <span class="brand__sub">Observatorio</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-od-id="nav-toggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" aria-label="Principal" data-od-id="site-nav">
+      <a href="tema.html" data-od-id="nav-tema">Tema del mes</a>
+      <a href="index.html#lineas" data-od-id="nav-lineas">Líneas</a>
+      <a href="analisis.html" data-od-id="nav-analisis">Análisis</a>
+      <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
+      <a href="cifras.html" data-od-id="nav-cifras">Cifras</a>
+      <a href="biblioteca.html" data-od-id="nav-biblioteca">Biblioteca</a>
+      <a href="metodo.html" data-od-id="nav-metodo">Método</a>
+    </nav>
+  </div>
 </header>
 
-<main>
+<main id="contenido" tabindex="-1">
 
-<!-- HERO -->
-<section class="hero" id="inicio" aria-labelledby="hero-h1">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-texture" aria-hidden="true">
-    <!-- Wave lines derived from logo water motif -->
-    <svg class="hero-waves" viewBox="0 0 1600 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,100 C267,60 533,160 800,100 C1067,40 1333,140 1600,100 L1600,240 L0,240 Z" fill="#c8e6c9" opacity=".13"/>
-      <path d="M0,140 C320,105 640,185 960,140 C1280,95 1440,155 1600,140 L1600,240 L0,240 Z" fill="#c8e6c9" opacity=".09"/>
-      <path d="M0,170 C400,145 800,200 1200,165 C1400,148 1520,178 1600,170 L1600,240 L0,240 Z" fill="#c8e6c9" opacity=".06"/>
-      <path d="M0,195 C533,178 1067,210 1600,195 L1600,240 L0,240 Z" fill="#c8e6c9" opacity=".04"/>
-    </svg>
-    <!-- Leaf 1: large tropical leaf -->
-    <svg class="hero-leaf hero-leaf-1" width="130" height="210" viewBox="0 0 130 210" xmlns="http://www.w3.org/2000/svg">
-      <path d="M65,200 C20,155 5,100 8,60 C12,20 65,4 65,4 C65,4 118,20 122,60 C125,100 110,155 65,200 Z" fill="#c8e6c9"/>
-      <path d="M65,4 L65,200" stroke="#0d2b1c" stroke-width="2" fill="none" opacity=".3"/>
-    </svg>
-    <!-- Leaf 2: smaller leaf -->
-    <svg class="hero-leaf hero-leaf-2" width="85" height="145" viewBox="0 0 85 145" xmlns="http://www.w3.org/2000/svg">
-      <path d="M42,138 C12,102 4,68 6,42 C9,16 42,4 42,4 C42,4 76,16 79,42 C81,68 72,102 42,138 Z" fill="#c8e6c9"/>
-    </svg>
-    <!-- Leaf 3: horizontal oval leaf -->
-    <svg class="hero-leaf hero-leaf-3" width="110" height="62" viewBox="0 0 110 62" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3,31 C3,31 28,3 62,5 C96,7 107,31 107,31 C107,31 96,57 62,59 C28,61 3,31 3,31 Z" fill="#c8e6c9"/>
-    </svg>
-  </div>
-  <!-- Geometric spiral derived from logo central symbol -->
-  <div class="hero-arc" aria-hidden="true">
-    <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" fill="none" width="700" height="700">
-      <g stroke="#c8e6c9" stroke-width="1.5">
-        <circle cx="350" cy="350" r="330"/>
-        <circle cx="350" cy="350" r="268"/>
-        <circle cx="350" cy="350" r="205"/>
-        <circle cx="350" cy="350" r="143"/>
-        <circle cx="350" cy="350" r="82"/>
-        <circle cx="350" cy="350" r="30"/>
-      </g>
-      <g stroke="#c8e6c9" stroke-width="1" opacity=".55">
-        <line x1="350" y1="20" x2="350" y2="680"/>
-        <line x1="20" y1="350" x2="680" y2="350"/>
-        <line x1="117" y1="117" x2="583" y2="583"/>
-        <line x1="583" y1="117" x2="117" y2="583"/>
-      </g>
-      <g stroke="#c8e6c9" stroke-width="1" opacity=".3">
-        <polygon points="350,20 583,117 680,350 583,583 350,680 117,583 20,350 117,117"/>
-        <polygon points="350,112 513,187 588,350 513,513 350,588 187,513 112,350 187,187"/>
-      </g>
-      <path d="M350,350 L350,96 A254,254 0 0,1 604,350 A210,210 0 0,1 350,560 A164,164 0 0,1 186,350 A118,118 0 0,1 350,232 A72,72 0 0,1 422,350" stroke="#c8e6c9" stroke-width="2.5" fill="none" opacity=".65"/>
-    </svg>
-  </div>
-  <div class="container hero-content">
-    <div class="hero-eyebrow">
-      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
-      Colegio Nacional de Ecólogos de Colombia
-    </div>
-    <h1 id="hero-h1">La ecología que<br><em>construye el país</em></h1>
-    <p class="hero-sub">Únete a la red profesional más importante de ecólogos en Colombia. Obtén tu reconocimiento gremial, accede al banco de empleo especializado y forma parte de la comunidad que lidera la sostenibilidad ambiental de la nación.</p>
-    <div class="hero-ctas">
-      <a href="#afiliacion" class="btn btn-green btn-lg">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-8 0v2"/><circle cx="12" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-        Afíliate ahora
-      </a>
-      <a href="#banco-empleo" class="btn btn-ghost-white btn-lg">
-        Conoce el banco de empleo
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="hero-stats" aria-label="Cifras de COLNADE">
-      <div class="hstat"><span class="hstat-n">+3.800</span><span class="hstat-l">Ecólogos Afiliados</span></div>
-      <div class="hstat"><span class="hstat-n">+240</span><span class="hstat-l">Ofertas de Empleo</span></div>
-      <div class="hstat"><span class="hstat-n">32</span><span class="hstat-l">Departamentos</span></div>
-      <div class="hstat"><span class="hstat-n">2001</span><span class="hstat-l">Fundados</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY COLNADE -->
-<section class="why sec" id="por-que" aria-labelledby="why-ttl">
-  <div class="container">
-    <div class="s-header tc" style="max-width:600px;margin-left:auto;margin-right:auto">
-      <span class="s-label">Por qué afiliarte</span>
-      <h2 class="s-title" id="why-ttl">Tu respaldo profesional en ecología</h2>
-      <p class="s-sub">COLNADE es más que un gremio — es la plataforma que conecta tu trayectoria con las oportunidades que mereces.</p>
-    </div>
-    <!-- Logo full-color con subtítulo — protagonismo de marca -->
-    <div class="why-logo-wrap rv">
-      <img src="mq8otja6-__5-ID-fullcolor-ST.png" alt="COLNADE — Colegio Nacional de Ecólogos de Colombia" loading="lazy" />
-    </div>
-
-    <div class="why-grid">
-      <div class="why-card rv">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0"/><path d="M8 7V5a2 2 0 014 0"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-        </div>
-        <h3>Reconocimiento profesional y tarjeta de afiliado</h3>
-        <p>Obtén tu carné profesional avalado por COLNADE, reconocido por entidades públicas y privadas en todo el territorio nacional. Tu acreditación que abre puertas en licitaciones, concursos y proyectos ambientales.</p>
+  <!-- A · Banda de cifras -->
+  <section class="cifras-band" id="cifras-banda" data-od-id="banda-cifras">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
+        <p class="section-label" style="color:var(--blanco);margin:0;">La ecología en cifras</p>
+        <a href="cifras.html" style="color:var(--ambar);font-size:15px;" data-od-id="cta-cifras">Ver todos los datos y su método &rarr;</a>
       </div>
-      <div class="why-card rv" style="transition-delay:.08s">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="9" cy="9" r="2"/><path d="M15 9h4"/><path d="M15 12h2"/></svg>
+      <p style="color:var(--arena);max-width:62ch;margin:0 0 var(--space-6);font-size:17px;">El primer retrato estadístico de la profesión en Colombia, construido sobre el Registro Único de Ecólogos. Nadie más tiene estos datos.</p>
+      <div class="cifras-band__grid">
+        <div class="cifra" data-od-id="cifra-banda-1">
+          <p class="cifra__numero">1.379</p>
+          <p class="cifra__etiqueta">Ecólogos con matrícula profesional en todo el país</p>
+          <p class="cifra__fuente">RUE · corte 30 de julio de 2026</p>
         </div>
-        <h3>Acceso al banco de empleo especializado</h3>
-        <p>Conecta con más de 240 empresas, alcaldías, corporaciones autónomas y consultoras ambientales que buscan ecólogos certificados para proyectos de alto impacto en todo Colombia.</p>
-      </div>
-      <div class="why-card rv" style="transition-delay:.16s">
-        <div class="why-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <div class="cifra" data-od-id="cifra-banda-2">
+          <p class="cifra__numero">63,2%</p>
+          <p class="cifra__etiqueta">Son mujeres: 872 ecólogas y 507 ecólogos</p>
+          <p class="cifra__fuente">RUE · corte 30 de julio de 2026</p>
         </div>
-        <h3>Comunidad nacional de ecólogos</h3>
-        <p>Forma parte de una red viva de más de 3.800 ecólogos: participa en eventos, seminarios, mesas técnicas y grupos regionales que impulsan la ciencia ambiental colombiana.</p>
+        <div class="cifra" data-od-id="cifra-banda-3">
+          <p class="cifra__numero">&minus;30%</p>
+          <p class="cifra__etiqueta">Cayó el ritmo de matrículas tras 2014 y no se ha recuperado</p>
+          <p class="cifra__fuente">RUE · promedio 2010–2014 vs. 2015–2025</p>
+        </div>
+        <div class="cifra" data-od-id="cifra-banda-4">
+          <p class="cifra__numero">4</p>
+          <p class="cifra__etiqueta">Programas de ecología activos, de cinco que hubo</p>
+          <p class="cifra__fuente">SNIES · Ministerio de Educación</p>
+        </div>
       </div>
     </div>
-    <div class="why-cta"><a href="#afiliacion" class="btn btn-green">Afíliate a COLNADE</a></div>
-  </div>
-</section>
+  </section>
 
-<!-- AFFILIATION -->
-<section class="aff sec" id="afiliacion" aria-labelledby="aff-ttl">
-  <div class="container">
-    <div class="aff-layout">
+  <!-- B · Tema del mes -->
+  <section class="tema-mes" data-od-id="tema-del-mes">
+    <div class="container tema-mes__grid">
       <div>
-        <span class="s-label">Proceso de afiliación</span>
-        <h2 class="s-title" id="aff-ttl">Únete en 3 pasos simples</h2>
-        <p class="s-sub" style="margin-bottom:2.5rem">El proceso es 100% digital. Recibirás tu tarjeta profesional en formato digital en máximo 5 días hábiles.</p>
-        <div class="steps">
-          <div class="step rv">
-            <span class="step-n" aria-hidden="true">1</span>
-            <div class="step-body">
-              <h4>Diligencia el formulario y adjunta tus documentos</h4>
-              <p>Diploma, acta de grado, cédula, foto 3×4 cm fondo blanco y hoja de vida. Todo en formato digital (JPEG o PDF, máx 10 MB).</p>
-            </div>
-          </div>
-          <div class="step rv" style="transition-delay:.1s">
-            <span class="step-n" aria-hidden="true">2</span>
-            <div class="step-body">
-              <h4>Realiza el pago y envía el comprobante</h4>
-              <p>Consigna en la cuenta de ahorros Bancolombia Nº 868-802950-73 a nombre de COLNADE (NIT 900.281.223-5) y adjunta el comprobante.</p>
-            </div>
-          </div>
-          <div class="step rv" style="transition-delay:.2s">
-            <span class="step-n" aria-hidden="true">3</span>
-            <div class="step-body">
-              <h4>Recibe tu tarjeta profesional digital</h4>
-              <p>Una vez verificados tus documentos, recibirás la tarjeta y el certificado de matrícula profesional en tu correo en máximo 5 días hábiles.</p>
-            </div>
-          </div>
+        <p class="section-label">Tema del mes · 28 de agosto</p>
+        <h1 class="tema-mes__title">ABC del Presidente: los primeros 100 días desde la mirada ecológica</h1>
+        <p class="tema-mes__bajada">Evaluación técnica y no partidista de las decisiones ambientales adoptadas durante los primeros cien días de gobierno: agua, minería, ordenamiento territorial y clima. Qué se decidió, qué evidencia lo respalda y qué falta.</p>
+        <div class="tema-mes__meta">
+          <span class="tag tag--oliva">Línea · Políticas públicas</span>
+          <span class="tag">Publicado 28 ago 2026</span>
         </div>
-      </div>
-      <div class="f-box" aria-label="Información para afiliarse a COLNADE">
-        <h3>Tarifa y pago 2026</h3>
-
-        <div class="portal-note" role="note" style="margin-bottom:1.4rem">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          El valor de la tarjeta profesional corresponde a la mitad de un S.M.L.V.
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem">
-          <div style="background:rgba(26,74,46,.06);border:1.5px solid var(--green-mid);border-radius:10px;padding:1rem;text-align:center">
-            <div style="font-size:.68rem;font-family:var(--font-display);font-weight:700;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.3rem;text-transform:uppercase">Tarifa regular 2026</div>
-            <div style="font-size:1.5rem;font-weight:800;color:var(--green-dark);line-height:1.1">$875.453</div>
-            <div style="font-size:.72rem;color:var(--gray-400);margin-top:.25rem">COP</div>
-          </div>
-          <div style="background:rgba(45,122,79,.12);border:1.5px solid var(--green-light);border-radius:10px;padding:1rem;text-align:center">
-            <div style="font-size:.68rem;font-family:var(--font-display);font-weight:700;letter-spacing:.08em;color:var(--green-mid);margin-bottom:.3rem;text-transform:uppercase">Amnistía hasta Jun 30</div>
-            <div style="font-size:1.5rem;font-weight:800;color:var(--green-dark);line-height:1.1">$787.908</div>
-            <div style="font-size:.72rem;color:var(--gray-400);margin-top:.25rem">COP</div>
-          </div>
-        </div>
-
-        <div style="background:var(--gray-50);border-radius:10px;padding:1rem 1.1rem;margin-bottom:1.5rem;font-size:.83rem;line-height:1.6;color:var(--gray-600)">
-          <strong style="display:block;color:var(--gray-800);margin-bottom:.4rem">Datos bancarios para el pago</strong>
-          Banco: Bancolombia · Cuenta de Ahorros<br>
-          Número: <strong>868-802950-73</strong><br>
-          Beneficiario: COLNADE – Colegio Nacional de Ecólogos<br>
-          NIT: <strong>900.281.223-5</strong>
-        </div>
-
-        <div style="font-size:.82rem;color:var(--gray-600);margin-bottom:1.25rem;line-height:1.6">
-          <strong style="color:var(--gray-800)">Documentos requeridos (digital, máx 10 MB total):</strong><br>
-          Diploma · Acta de grado · Cédula · Foto 3×4 cm fondo blanco (JPG) · Hoja de vida
-        </div>
-
-        <a href="https://forms.gle/NPfZZPv8pR1Dcn5H7" target="_blank" rel="noopener"
-           class="btn btn-green btn-lg" style="width:100%;justify-content:center;text-decoration:none">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Ir al formulario de solicitud
-        </a>
-        <p class="f-privacy" style="margin-top:.9rem">¿Dudas? Escríbenos a <a href="mailto:contacto@colnade.co" style="color:var(--green-mid)">contacto@colnade.co</a> · Tus datos están protegidos conforme a la Ley 1581 de 2012.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- JOB BOARD -->
-<section class="jobs sec" id="banco-empleo" aria-labelledby="jobs-ttl">
-  <div class="container">
-    <div class="jobs-head">
-      <div>
-        <span class="s-label">Banco de empleo</span>
-        <h2 class="s-title" id="jobs-ttl">Oportunidades para ecólogos</h2>
-        <p class="s-sub">Empresas, CAR, alcaldías y consultoras buscando ecólogos certificados hoy.</p>
-      </div>
-    </div>
-    <div class="jobs-grid">
-      <article class="jcard rv">
-        <div class="jcard-top">
-          <div class="jlogo" aria-hidden="true">CAR</div>
-          <div class="jmeta"><div class="jco">Corporinoquia</div><div class="jrole">Profesional Ambiental – Evaluación EIA</div></div>
-        </div>
-        <div class="jtags"><span class="jtag hi">Destacada</span><span class="jtag">Tiempo completo</span><span class="jtag">Sector público</span></div>
-        <div class="jloc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Yopal, Casanare</div>
-        <div class="jdate">Cierra: 25 jun 2026</div>
-      </article>
-      <article class="jcard rv" style="transition-delay:.05s">
-        <div class="jcard-top">
-          <div class="jlogo" aria-hidden="true">AECOM</div>
-          <div class="jmeta"><div class="jco">Aecom Colombia S.A.S.</div><div class="jrole">Ecólogo Líder – Licencia Ambiental</div></div>
-        </div>
-        <div class="jtags"><span class="jtag">Tiempo completo</span><span class="jtag">Consultoría</span></div>
-        <div class="jloc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bogotá D.C. (Híbrido)</div>
-        <div class="jdate">Cierra: 30 jun 2026</div>
-      </article>
-      <article class="jcard rv" style="transition-delay:.1s">
-        <div class="jcard-top">
-          <div class="jlogo" aria-hidden="true">PNN</div>
-          <div class="jmeta"><div class="jco">Parques Nacionales Naturales</div><div class="jrole">Profesional Ecología – Monitoreo Biodiversidad</div></div>
-        </div>
-        <div class="jtags"><span class="jtag hi">Destacada</span><span class="jtag">Contrato</span><span class="jtag">Sector público</span></div>
-        <div class="jloc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Leticia, Amazonas</div>
-        <div class="jdate">Cierra: 5 jul 2026</div>
-      </article>
-      <article class="jcard rv" style="transition-delay:.15s">
-        <div class="jcard-top">
-          <div class="jlogo" aria-hidden="true">ENV</div>
-          <div class="jmeta"><div class="jco">Enviambiente S.A.S.</div><div class="jrole">Ecólogo de Campo – Vegetación y Fauna</div></div>
-        </div>
-        <div class="jtags"><span class="jtag">Tiempo completo</span><span class="jtag">Consultoría</span></div>
-        <div class="jloc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Medellín, Antioquia</div>
-        <div class="jdate">Cierra: 15 jul 2026</div>
-      </article>
-      <article class="jcard rv" style="transition-delay:.2s">
-        <div class="jcard-top">
-          <div class="jlogo" aria-hidden="true">MMA</div>
-          <div class="jmeta"><div class="jco">Ministerio de Ambiente y DS</div><div class="jrole">Asesor Técnico – Gestión de Bosques</div></div>
-        </div>
-        <div class="jtags"><span class="jtag hi">Destacada</span><span class="jtag">Tiempo completo</span></div>
-        <div class="jloc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bogotá D.C.</div>
-        <div class="jdate">Cierra: 20 jul 2026</div>
-      </article>
-      <article class="jcard rv" style="transition-delay:.25s">
-        <div class="jcard-top">
-          <div class="jlogo" aria-hidden="true">GIZ</div>
-          <div class="jmeta"><div class="jco">GIZ Colombia</div><div class="jrole">Consultor Ecología – Proyecto Amazonia</div></div>
-        </div>
-        <div class="jtags"><span class="jtag">Consultoría</span><span class="jtag">Coop. internacional</span></div>
-        <div class="jloc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Remoto (Colombia)</div>
-        <div class="jdate">Cierra: 28 jul 2026</div>
-      </article>
-    </div>
-    <div class="jobs-ctas">
-      <a href="#banco-empleo" class="btn btn-outline-dark">Ver todas las ofertas</a>
-      <a href="#afiliacion" class="btn btn-green">Subir mi hoja de vida</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHO WE ARE -->
-<section class="about sec" id="quienes-somos" aria-labelledby="about-ttl">
-  <div class="container">
-    <div class="about-layout">
-      <div>
-        <div class="founding">
-          <span class="founding-yr">2001</span>
-          <span class="founding-l">Fundados en Colombia</span>
-        </div>
-        <div class="tl" aria-label="Historia institucional">
-          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-yr">2001</div><div class="tl-txt">Fundación con 120 ecólogos fundadores en Bogotá D.C.</div></div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-yr">2008</div><div class="tl-txt">Reconocimiento oficial por el Ministerio de Educación Nacional.</div></div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-yr">2015</div><div class="tl-txt">Lanzamiento del banco de empleo especializado en ecología.</div></div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div><div class="tl-yr">2024</div><div class="tl-txt">Superamos 3.800 afiliados activos en los 32 departamentos.</div></div></div>
+        <div class="tabs-mini">
+          <a class="btn btn--primary" href="tema.html" data-od-id="cta-tema">Abrir el tema</a>
+          <a class="btn btn--ghost" href="tema.html#repositorio" data-od-id="cta-repositorio">Repositorio documental</a>
         </div>
       </div>
       <div>
-        <span class="s-label">Quiénes somos</span>
-        <h2 class="s-title" id="about-ttl">Una institución al servicio de la ecología colombiana</h2>
-        <p class="about-desc">COLNADE es el Colegio Nacional de Ecólogos de Colombia, la organización gremial que agrupa, representa y defiende los intereses de los profesionales de la ecología en el territorio nacional. Desde nuestra fundación en 2001, hemos trabajado incansablemente por el reconocimiento de la ecología como disciplina estratégica para el desarrollo sostenible, la conservación de la biodiversidad y la gestión ambiental del país. Somos interlocutores ante el gobierno nacional, las corporaciones autónomas regionales y la academia, garantizando que la voz de los ecólogos colombianos sea escuchada en las decisiones que moldean el futuro ambiental de Colombia.</p>
-        <h3 class="board-ttl">Junta Directiva 2025–2027</h3>
-        <div class="portal-note" role="note" style="margin-bottom:1.2rem;font-size:.8rem">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          Pendiente de confirmación — Los datos reales de la nueva Junta Directiva (en ejercicio desde agosto 1 de 2025) serán publicados próximamente.
-        </div>
-        <div class="board-grid">
-          <div class="bcard"><div class="bphoto" aria-hidden="true" style="background:linear-gradient(135deg,#1a3a1a,#2d7a4f)">—</div><div class="bname" style="color:var(--gray-400);font-style:italic">Por confirmar</div><div class="brole">Presidente Nacional</div></div>
-          <div class="bcard"><div class="bphoto" style="background:linear-gradient(135deg,#7a5c11,#c9a843)" aria-hidden="true">—</div><div class="bname" style="color:var(--gray-400);font-style:italic">Por confirmar</div><div class="brole">Vicepresidente/a</div></div>
-          <div class="bcard"><div class="bphoto" style="background:linear-gradient(135deg,#1a4a2e,#4a8a2d)" aria-hidden="true">—</div><div class="bname" style="color:var(--gray-400);font-style:italic">Por confirmar</div><div class="brole">Secretario/a General</div></div>
-          <div class="bcard"><div class="bphoto" style="background:linear-gradient(135deg,#2d3a1a,#5a8a2d)" aria-hidden="true">AI</div><div class="bname">Adriana Infante</div><div class="brole">Tesorera</div></div>
-          <div class="bcard"><div class="bphoto" style="background:linear-gradient(135deg,#1a3a4a,#2d6a7a)" aria-hidden="true">—</div><div class="bname" style="color:var(--gray-400);font-style:italic">Por confirmar</div><div class="brole">Vocal</div></div>
-          <div class="bcard"><div class="bphoto" style="background:linear-gradient(135deg,#3a1a2d,#7a2d5a)" aria-hidden="true">—</div><div class="bname" style="color:var(--gray-400);font-style:italic">Por confirmar</div><div class="brole">Vocal</div></div>
+        <p class="section-label">Qué se observa</p>
+        <ul class="repo-list" style="border-top:none;" data-od-id="ejes-tema">
+          <li><span class="repo-link"><span>Agua — cuencas, páramos y disponibilidad</span></span></li>
+          <li><span class="repo-link"><span>Minería — licenciamiento y pasivos</span></span></li>
+          <li><span class="repo-link"><span>Ordenamiento territorial — usos del suelo y áreas protegidas</span></span></li>
+          <li><span class="repo-link"><span>Clima — compromisos y capacidad institucional</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- C · Líneas de observación -->
+  <section class="section section--first reveal" data-od-id="lineas" id="lineas">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
+        <h2 class="section-label" style="margin:0;">Líneas de observación</h2>
+        <a href="metodo.html" style="font-size:15px;" data-od-id="cta-metodo-lineas">Cómo trabajamos &rarr;</a>
+      </div>
+      <p style="color:var(--tinta-2);max-width:62ch;margin:0 0 var(--space-6);">Tres frentes permanentes. Cada uno abre un tema nuevo el 28 del mes y lo lleva hasta un concepto técnico citable.</p>
+
+      <div class="grid grid-3">
+        <article class="card" data-od-id="linea-politicas-publicas">
+          <span class="tag tag--oliva">Activa</span>
+          <h3 class="card__title"><a href="tema.html">Políticas públicas</a></h3>
+          <p class="card__excerpt">Seguimiento técnico a las decisiones de política pública con efecto ecológico: planes, reformas, normas y actos administrativos.</p>
+          <div class="linea-meta">
+            <span class="estado estado--curso">En investigación</span>
+            <span class="meta">1 tema abierto</span>
+          </div>
+          <p class="meta" style="margin-top:8px;">Tema actual: <a href="tema.html">ABC del Presidente</a> · abierto el 28 ago 2026</p>
+        </article>
+
+        <article class="card" data-od-id="linea-tendencias">
+          <span class="tag tag--ambar">Próximamente</span>
+          <h3 class="card__title">Tendencias</h3>
+          <p class="card__excerpt">Conflictos socioambientales, controversias públicas y fenómenos emergentes que exigen lectura técnica.</p>
+          <div class="linea-meta">
+            <span class="estado estado--previsto">Sin abrir</span>
+            <span class="meta">Apertura: 28 sep 2026</span>
+          </div>
+        </article>
+
+        <article class="card" data-od-id="linea-nuevos-paradigmas">
+          <span class="tag tag--ambar">Próximamente</span>
+          <h3 class="card__title">Nuevos paradigmas e innovación</h3>
+          <p class="card__excerpt">Enfoques emergentes en la práctica ecológica: soluciones basadas en la naturaleza, restauración e innovación aplicada.</p>
+          <div class="linea-meta">
+            <span class="estado estado--previsto">Sin abrir</span>
+            <span class="meta">Apertura: octubre 2026</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="meta" style="margin-top:var(--space-5);max-width:70ch;">Estados de un tema: <span class="estado estado--abierto" style="font-size:12px;">Abierto</span> &nbsp; <span class="estado estado--curso" style="font-size:12px;">En investigación</span> &nbsp; <span class="estado estado--publicado" style="font-size:12px;">Con concepto publicado</span> &nbsp; <span class="estado estado--previsto" style="font-size:12px;">Sin abrir</span></p>
+    </div>
+  </section>
+
+  <!-- D · Notas de análisis -->
+  <section class="section reveal" data-od-id="notas-analisis">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
+        <p class="section-label" style="margin-bottom:0;">Análisis</p>
+        <a class="btn btn--link" href="analisis.html" data-od-id="cta-ver-analisis">Ver todas las notas →</a>
+      </div>
+      <div class="grid grid-3">
+        <article class="card nota-card" data-od-id="nota-sismo">
+          <p class="meta">Análisis · 11 de agosto de 2026</p>
+          <h3 class="card__title"><a href="analisis.html">El terremoto del 10 de agosto no fue causado por el fracking, y esa mentira le costó al debate ambiental</a></h3>
+          <p class="card__excerpt">Un sismo de subducción a 96 km de profundidad se atribuyó a una técnica que en Colombia no se practica. El costo lo pagó el debate.</p>
+        </article>
+        <article class="card nota-card" data-od-id="nota-matriculas">
+          <p class="meta">Análisis · 28 de julio de 2026</p>
+          <h3 class="card__title"><a href="analisis.html">Las matrículas profesionales de ecología cayeron 30% después de 2014 y no se han recuperado</a></h3>
+          <p class="card__excerpt">El promedio anual pasó de 106 a 74 trámites. El mínimo se registró en 2023, con 61.</p>
+        </article>
+        <article class="card nota-card" data-od-id="nota-profesion">
+          <p class="meta">Análisis · 8 de julio de 2026</p>
+          <h3 class="card__title"><a href="analisis.html">Se gradúan más ecólogos que nunca y una proporción creciente no tramita su matrícula</a></h3>
+          <p class="card__excerpt">337 titulados entre 2010 y 2019; ya 334 desde 2020, en seis años y medio. La brecha que se abre.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- E · Tribuna -->
+  <section class="section tribuna reveal" data-od-id="tribuna" style="padding-top:var(--space-12);">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
+        <p class="section-label" style="margin-bottom:0;">Tribuna · la voz de los colegiados</p>
+        <a class="btn btn--ghost" href="tribuna.html" data-od-id="cta-leer-tribuna">Leer tribuna</a>
+      </div>
+      <p class="aviso-muestra solo-revision">Los tres perfiles de abajo son <strong>material de muestra</strong>: las fotografías y los nombres se reemplazan por los de los tres columnistas reales una vez estén confirmados. Lo que se aprueba aquí es el formato de la ficha y la ubicación del aviso de opinión personal.</p>
+      <div class="grid grid-3">
+        <article class="tribuna-card" data-muestra="perfil de muestra" data-od-id="tribuna-1">
+          <img class="tribuna-card__foto" src="assets/autores/autora-1.jpg" alt="" role="presentation">
+          <div>
+            <p class="tribuna-card__nombre">Nombre por confirmar</p>
+            <p class="tribuna-card__datos">Pontificia Universidad Javeriana · Bogotá<br>Ecóloga · año de grado por confirmar</p>
+          </div>
+          <p class="card__excerpt">Opinión personal del autor. No representa la posición institucional del Colegio.</p>
+        </article>
+        <article class="tribuna-card" data-muestra="perfil de muestra" data-od-id="tribuna-2">
+          <img class="tribuna-card__foto" src="assets/autores/autor-2.jpg" alt="" role="presentation">
+          <div>
+            <p class="tribuna-card__nombre">Nombre por confirmar</p>
+            <p class="tribuna-card__datos">Universidad CES · Medellín<br>Ecólogo · año de grado por confirmar</p>
+          </div>
+          <p class="card__excerpt">Opinión personal del autor. No representa la posición institucional del Colegio.</p>
+        </article>
+        <article class="tribuna-card" data-muestra="perfil de muestra" data-od-id="tribuna-3">
+          <img class="tribuna-card__foto" src="assets/autores/autora-3.jpg" alt="" role="presentation">
+          <div>
+            <p class="tribuna-card__nombre">Nombre por confirmar</p>
+            <p class="tribuna-card__datos">Fundación Universitaria de Popayán · Popayán<br>Ecóloga · año de grado por confirmar</p>
+          </div>
+          <p class="card__excerpt">Opinión personal del autor. No representa la posición institucional del Colegio.</p>
+        </article>
+      </div>
+      <p style="margin-top:32px;font-size:16px;" data-od-id="tribuna-invitacion">¿Es ecólogo colegiado y quiere publicar aquí? <a href="mailto:contacto@colnade.co?subject=Propuesta%20para%20Tribuna">Proponga su columna</a> o vea <a href="metodo.html#participacion">cómo participar en el Observatorio</a>.</p>
+    </div>
+  </section>
+
+  <!-- F · Qué es el Observatorio -->
+  <section class="section que-es reveal" data-od-id="que-es" id="metodo">
+    <div class="container que-es__inner">
+      <p class="section-label">Qué es el Observatorio</p>
+      <div class="metodo-blocks">
+        <div class="metodo-block">
+          <p>Una unidad de análisis del Colegio Nacional de Ecólogos de Colombia dedicada a producir lecturas técnicas y verificables sobre las decisiones con efecto ecológico que se toman en el país.</p>
+          <p style="color:var(--tinta-2);font-size:17px;">No es una organización ambiental ni una campaña: es una fuente. Cada dato lleva su fuente y su fecha de corte al lado. Cada pieza es citable. Y cuando nos equivocamos, la corrección queda escrita al pie.</p>
+          <a class="btn btn--ghost" href="metodo.html" data-od-id="cta-metodo">Método, fuentes y Comité Editorial</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOR COMPANIES -->
-<section class="companies sec" id="empresas" aria-labelledby="co-ttl">
-  <div class="container">
-    <div class="co-layout">
-      <div>
-        <span class="s-label">Para empresas e instituciones</span>
-        <h2 class="s-title" id="co-ttl">¿Necesitas ecólogos certificados?</h2>
-        <p class="s-sub">COLNADE conecta organizaciones con ecólogos verificados para proyectos ambientales, licenciamientos, monitoreos y estudios de impacto en todo Colombia.</p>
-        <div class="co-benefits">
-          <div class="benefit"><span class="bchk" aria-hidden="true">✓</span>Base de datos de más de 3.800 ecólogos activos</div>
-          <div class="benefit"><span class="bchk" aria-hidden="true">✓</span>Perfiles verificados con título y experiencia validados</div>
-          <div class="benefit"><span class="bchk" aria-hidden="true">✓</span>Publicación de ofertas en el banco de empleo especializado</div>
-          <div class="benefit"><span class="bchk" aria-hidden="true">✓</span>Aval institucional para licitaciones ambientales</div>
-          <div class="benefit"><span class="bchk" aria-hidden="true">✓</span>Alianzas para proyectos de impacto en CAR y organizaciones internacionales</div>
-        </div>
-      </div>
-      <div class="co-form" aria-label="Formulario de contacto para empresas">
-        <h3>Contáctanos como empresa</h3>
-        <form id="form-co" novalidate>
-          <div class="fg">
-            <div class="ff full">
-              <label for="c-empresa">Nombre de la empresa / entidad *</label>
-              <input type="text" id="c-empresa" name="empresa" placeholder="Ej. Ecopetrol S.A." required />
-              <span class="f-err" id="e-empresa">Por favor ingresa el nombre de la empresa.</span>
-            </div>
-            <div class="ff">
-              <label for="c-contacto">Nombre del contacto *</label>
-              <input type="text" id="c-contacto" name="contacto" placeholder="Nombre completo" required />
-              <span class="f-err" id="e-contacto">Por favor ingresa el nombre del contacto.</span>
-            </div>
-            <div class="ff">
-              <label for="c-email">Correo corporativo *</label>
-              <input type="email" id="c-email" name="email" placeholder="contacto@empresa.com" required />
-              <span class="f-err" id="e-co-email">Por favor ingresa un correo válido.</span>
-            </div>
-            <div class="ff full">
-              <label for="c-sector">Sector</label>
-              <select id="c-sector" name="sector">
-                <option value="">Selecciona el sector</option>
-                <option>Consultoría ambiental</option>
-                <option>Minería e hidrocarburos</option>
-                <option>Sector público / Gobierno</option>
-                <option>Infraestructura y construcción</option>
-                <option>ONG / Cooperación internacional</option>
-                <option>Academia / Investigación</option>
-                <option>Otro</option>
-              </select>
-            </div>
-            <div class="ff full">
-              <label for="c-msg">¿En qué podemos ayudarte?</label>
-              <textarea id="c-msg" name="mensaje" rows="3" placeholder="Describe el perfil que necesitas, el proyecto o el tipo de alianza que buscas…" style="resize:vertical"></textarea>
-            </div>
-          </div>
-          <button type="submit" id="btn-co" class="btn btn-earth" style="width:100%;justify-content:center;margin-top:1.15rem;padding:.95rem">
-            Enviar consulta
-          </button>
+  <!-- G · Convocatoria y suscripción -->
+  <section class="section reveal" data-od-id="convocatoria">
+    <div class="container">
+      <div class="convocatoria">
+        <p class="section-label" style="color:var(--ambar);">Un tema nuevo el 28 de cada mes</p>
+        <h2 style="max-width:22ch;">No se pierda el próximo concepto técnico</h2>
+        <p>Le escribimos cuando se abre un tema y cuando se publica un concepto. Si es periodista, le llega antes de que salga.</p>
+
+        <form class="form-suscribir" data-muestra="conectar a la lista de correo" data-od-id="form-suscribir" onsubmit="return false;">
+          <label class="visually-hidden" for="email-observatorio">Correo electrónico</label>
+          <input type="email" id="email-observatorio" name="email" placeholder="Su correo electrónico" required autocomplete="email">
+          <button class="btn" type="submit">Suscribirme</button>
+          <p class="nota-legal">Solo el Observatorio: apertura de temas y publicación de conceptos. Puede darse de baja en cualquier momento. Tratamos sus datos conforme al <a href="politica-datos.html">aviso de privacidad</a>.</p>
         </form>
+
+        <p style="margin-top:28px;padding-top:22px;border-top:1px solid rgba(195,173,142,.35);margin-bottom:0;">¿Es ecólogo colegiado? También puede aportar: <a href="metodo.html#participacion">escriba en Tribuna o responda una convocatoria</a>.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- NEWS -->
-<section class="news sec" id="noticias" aria-labelledby="news-ttl">
-  <div class="container">
-    <div class="news-head">
-      <div>
-        <span class="s-label">Noticias y actualidad</span>
-        <h2 class="s-title" id="news-ttl">Lo último de COLNADE</h2>
-      </div>
-      <a href="#noticias" class="btn btn-outline-dark">Ver todas las noticias</a>
-    </div>
-    <div class="news-grid">
-      <article class="ncard rv">
-        <div class="nimg nimg-1">
-          <img src="nimg-congreso.jpg" alt="Bosque colombiano — XIV Congreso Nacional de Ecología 2026" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <span class="ncat">Evento</span>
-        </div>
-        <div class="nbody">
-          <div class="ndate">3 junio 2026</div>
-          <h3 class="ntitle">XIV Congreso Nacional de Ecología 2026 — Inscripciones abiertas en Manizales</h3>
-          <p class="nexcerpt">Más de 200 ponencias sobre biodiversidad, restauración ecológica y cambio climático. Cupos limitados para ecólogos afiliados a COLNADE.</p>
-          <a href="#noticias" class="nmore" aria-label="Leer nota: Congreso Nacional de Ecología 2026">Leer más <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-      <article class="ncard rv" style="transition-delay:.08s">
-        <div class="nimg nimg-2">
-          <img src="nimg-ley.jpg" alt="Congreso de Colombia — Ley de Profesiones Ambientales" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <span class="ncat">Institucional</span>
-        </div>
-        <div class="nbody">
-          <div class="ndate">28 mayo 2026</div>
-          <h3 class="ntitle">COLNADE presenta ante el Congreso el proyecto de Ley de Profesiones Ambientales</h3>
-          <p class="nexcerpt">La propuesta reglamenta el ejercicio profesional de la ecología y ciencias afines para proteger a la sociedad y los ecosistemas colombianos.</p>
-          <a href="#noticias" class="nmore" aria-label="Leer nota: Ley de Profesiones Ambientales">Leer más <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-      <article class="ncard rv" style="transition-delay:.16s">
-        <div class="nimg nimg-3">
-          <img src="nimg-sena.jpg" alt="Red de alianzas — Convenio COLNADE SENA" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <span class="ncat">Alianza</span>
-        </div>
-        <div class="nbody">
-          <div class="ndate">15 mayo 2026</div>
-          <h3 class="ntitle">Nuevo convenio con el SENA para certificar competencias en gestión ambiental</h3>
-          <p class="nexcerpt">Los afiliados a COLNADE acceden a certificaciones de competencia laboral en gestión de recursos naturales con descuentos exclusivos de afiliado.</p>
-          <a href="#noticias" class="nmore" aria-label="Leer nota: Convenio SENA COLNADE">Leer más <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- MEMBER PORTAL / SERVICIOS AL AFILIADO -->
-<section class="portal sec" id="portal-afiliado" aria-labelledby="portal-ttl">
-  <div class="container">
-    <div class="s-header tc rv">
-      <span class="s-label">Área exclusiva</span>
-      <h2 class="s-title" id="portal-ttl">¿Ya eres afiliado? Solicita tus documentos</h2>
-      <p class="s-sub" style="margin:0 auto;">Como miembro activo de COLNADE tienes acceso a certificados y documentos oficiales. Usa los formularios a continuación para solicitarlos sin salir de esta página.</p>
-    </div>
-    <div class="portal-grid">
-
-      <!-- Card A: Constancia de afiliación -->
-      <div class="portal-card rv">
-        <div class="portal-card-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d7a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <span class="portal-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Solo para afiliados activos
-        </span>
-        <h3>Solicitar constancia de afiliación</h3>
-        <p class="card-desc">Obtén tu certificado oficial de membresía activa para trámites profesionales, licitaciones y concursos. Recibirás el documento en máximo 4 días hábiles en tu correo electrónico. <strong>Sin costo.</strong></p>
-        <div class="portal-note" role="note" style="margin-bottom:1.2rem">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Actualiza previamente tus datos en el RUE (Registro Único de Ecólogos) para agilizar el proceso.
-        </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5kJ-pPVYVEaq3B7dfaF-FZiAxaQ91Tq0e8ZZni_2yk4YS3w/viewform"
-           target="_blank" rel="noopener"
-           class="btn btn-green btn-lg" style="width:100%;justify-content:center;text-decoration:none;margin-top:.5rem">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Solicitar constancia (Formulario)
-        </a>
-      </div>
-
-      <!-- Card B: Tarjeta profesional -->
-      <div class="portal-card rv" style="transition-delay:.1s">
-        <div class="portal-card-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d7a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-        </div>
-        <span class="portal-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Solo para afiliados activos
-        </span>
-        <h3>Solicitar expedición de tarjeta profesional</h3>
-        <p class="card-desc">La tarjeta profesional COLNADE acredita tu identidad como ecólogo certificado ante entidades públicas, privadas y en procesos de contratación. Se expide en formato <strong>100% digital</strong> (Decreto 2106 de 2019).</p>
-        <div class="portal-note" role="note">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          El proceso toma máximo <strong>5 días hábiles</strong> desde la recepción completa de documentos y comprobante de pago.
-        </div>
-        <div style="font-size:.82rem;color:var(--gray-600);margin:1rem 0;line-height:1.6">
-          <strong style="color:var(--gray-800)">Tarifa 2026:</strong> $875.453 COP · Amnistía hasta jun 30: $787.908 COP<br>
-          <strong style="color:var(--gray-800)">Pago:</strong> Bancolombia Ahorros 868-802950-73 · NIT 900.281.223-5
-        </div>
-        <a href="https://forms.gle/NPfZZPv8pR1Dcn5H7"
-           target="_blank" rel="noopener"
-           class="btn btn-green btn-lg" style="width:100%;justify-content:center;text-decoration:none;margin-top:.5rem">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Solicitar tarjeta profesional (Formulario)
-        </a>
-      </div>
-
-      <!-- Card C: Duplicado tarjeta -->
-      <div class="portal-card rv" style="transition-delay:.2s">
-        <div class="portal-card-icon" aria-hidden="true">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d7a4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M7 15h.01M11 15h2"/></svg>
-        </div>
-        <span class="portal-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Por pérdida, deterioro o robo
-        </span>
-        <h3>Solicitar duplicado de tarjeta</h3>
-        <p class="card-desc">Se expide duplicado única y exclusivamente por pérdida, destrucción o deterioro de la tarjeta original. Envía la documentación a <a href="mailto:contacto@colnade.co" style="color:var(--green-mid)">contacto@colnade.co</a>.</p>
-        <div class="portal-note" role="note" style="margin-bottom:1rem">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Valor: <strong>$80.000 COP</strong> · Bancolombia Ahorros 868-802950-73
-        </div>
-        <div style="font-size:.82rem;color:var(--gray-600);margin-bottom:1.2rem;line-height:1.6">
-          <strong style="color:var(--gray-800)">Documentos requeridos:</strong><br>
-          Formulario de solicitud · Denuncia por pérdida (no mayor a 30 días) o tarjeta deteriorada · Foto 3×4 cm fondo blanco (JPG) · Copia cédula · Comprobante de pago
-        </div>
-        <a href="mailto:contacto@colnade.co?subject=Solicitud%20duplicado%20tarjeta%20profesional"
-           class="btn btn-green btn-lg" style="width:100%;justify-content:center;text-decoration:none">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Solicitar duplicado por correo
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- T'SUENA PLATFORM -->
-<section class="tsuena" id="tsuena" aria-labelledby="ts-title">
-  <div class="tsuena-bg" aria-hidden="true"></div>
-  <div class="tsuena-waves-bg" id="ts-wave-bg" aria-hidden="true"></div>
-
-  <div class="container">
-    <!-- Header -->
-    <div class="tsuena-header rv">
-      <div class="tsuena-eyebrow">Movimiento Cultural · COLNADE</div>
-      <h2 class="tsuena-headline" id="ts-title">
-        Colombia tiene la biodiversidad<br>más famosa del mundo.<br>
-        Pero nadie conoce a quienes la protegen.<br>
-        <em>Eso cambia ahora.</em>
-      </h2>
-      <p class="tsuena-subline">
-        <strong>T'SUENA</strong> — La plataforma que le pone cara y voz a la ecología colombiana.
-      </p>
-    </div>
-
-    <!-- Module tabs -->
-    <div class="tsuena-tabs" role="tablist" aria-label="Módulos de T'SUENA">
-      <button class="tsuena-tab active" role="tab" aria-selected="true"
-              id="ts-tab-a" aria-controls="ts-panel-a" data-ts-panel="ts-panel-a">
-        ▶ Historias
-      </button>
-      <button class="tsuena-tab" role="tab" aria-selected="false"
-              id="ts-tab-b" aria-controls="ts-panel-b" data-ts-panel="ts-panel-b">
-        ◉ Territorio
-      </button>
-      <button class="tsuena-tab" role="tab" aria-selected="false"
-              id="ts-tab-c" aria-controls="ts-panel-c" data-ts-panel="ts-panel-c">
-        ◈ Empresa &amp; Educación
-      </button>
-    </div>
-
-    <!-- PANEL A: Historias (Video showcase) -->
-    <div class="tsuena-panel active" id="ts-panel-a" role="tabpanel" aria-labelledby="ts-tab-a">
-      <div class="tsuena-video-grid">
-
-        <!-- Card 1 -->
-        <div class="ts-vid-card rv" tabindex="0" role="button" aria-label="Ver episodio: Amazonas — Jorge Andrés Ríos">
-          <div class="ts-vid-thumb">
-            <div class="ts-vid-thumb-img" style="background: linear-gradient(135deg, #1a4a2e 0%, #0d2a15 60%, #0a3520 100%); position:relative;">
-              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.18" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M0,180 Q60,140 120,165 Q180,185 240,145 Q300,105 360,130 L400,125 L400,250 L0,250Z" fill="#6abf4b"/>
-                <path d="M0,210 Q80,190 140,200 Q200,215 280,195 Q340,180 400,195 L400,250 L0,250Z" fill="#2d7a4f"/>
-              </svg>
-            </div>
-          </div>
-          <div class="ts-vid-overlay"></div>
-          <div class="ts-vid-play" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--green-light)" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <div class="ts-vid-info">
-            <div class="ts-vid-region">Amazonas · Leticia</div>
-            <div class="ts-vid-eco">Selva amazónica tropical</div>
-            <div class="ts-vid-name">Jorge Andrés Ríos</div>
-            <span class="ts-vid-badge">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Afiliado COLNADE
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="ts-vid-card rv" style="transition-delay:.1s" tabindex="0" role="button" aria-label="Ver episodio: Boyacá — Valentina Cruz Morales">
-          <div class="ts-vid-thumb">
-            <div class="ts-vid-thumb-img" style="background: linear-gradient(150deg, #1d4f3c 0%, #14332a 50%, #0e2820 100%); position:relative;">
-              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.2" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M0,100 Q40,60 80,80 Q120,100 160,70 Q200,40 240,60 Q280,80 320,50 Q360,25 400,40 L400,250 L0,250Z" fill="#2d7a4f"/>
-                <path d="M0,150 Q50,130 100,145 Q160,160 220,140 Q280,120 350,145 L400,150 L400,250 L0,250Z" fill="#1a4a2e"/>
-              </svg>
-            </div>
-          </div>
-          <div class="ts-vid-overlay"></div>
-          <div class="ts-vid-play" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--green-light)" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <div class="ts-vid-info">
-            <div class="ts-vid-region">Boyacá · Chiquinquirá</div>
-            <div class="ts-vid-eco">Páramo de Rabanal</div>
-            <div class="ts-vid-name">Valentina Cruz Morales</div>
-            <span class="ts-vid-badge">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Afiliada COLNADE
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="ts-vid-card rv" style="transition-delay:.2s" tabindex="0" role="button" aria-label="Ver episodio: Chocó — Samuel Palacios Hinestroza">
-          <div class="ts-vid-thumb">
-            <div class="ts-vid-thumb-img" style="background: linear-gradient(140deg, #0e3a2a 0%, #163520 55%, #0a2a18 100%); position:relative;">
-              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.22" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M 20,50 Q 22,180 20,250" stroke="rgba(106,191,75,.4)" stroke-width="3" fill="none"/>
-                <path d="M 50,30 Q 52,200 48,250" stroke="rgba(45,122,79,.5)" stroke-width="4" fill="none"/>
-                <path d="M 80,10 Q 78,210 76,250" stroke="rgba(106,191,75,.35)" stroke-width="3" fill="none"/>
-                <path d="M 110,20 Q 108,215 107,250" stroke="rgba(45,122,79,.45)" stroke-width="5" fill="none"/>
-                <path d="M0,220 L400,220 L400,250 L0,250Z" fill="rgba(0,80,40,.5)"/>
-              </svg>
-            </div>
-          </div>
-          <div class="ts-vid-overlay"></div>
-          <div class="ts-vid-play" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--green-light)" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <div class="ts-vid-info">
-            <div class="ts-vid-region">Chocó · Quibdó</div>
-            <div class="ts-vid-eco">Selva húmeda del Pacífico</div>
-            <div class="ts-vid-name">Samuel Palacios Hinestroza</div>
-            <span class="ts-vid-badge">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Afiliado COLNADE
-            </span>
-          </div>
-        </div>
-
-      </div>
-      <div class="tc">
-        <a href="#" class="btn btn-green">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Ver episodios en YouTube
-        </a>
-      </div>
-    </div>
-
-    <!-- PANEL B: Territorio (Map) -->
-    <div class="tsuena-panel" id="ts-panel-b" role="tabpanel" aria-labelledby="ts-tab-b">
-      <div class="tsuena-map-wrap">
-
-        <div class="rv">
-          <div class="tsuena-map-label">Toca Colombia. Escúchala.</div>
-          <div class="tsuena-map-hint">
-            <span class="ts-hint-dot"></span>
-            Selecciona un bioma para conocer su paisaje sonoro
-          </div>
-          <svg viewBox="0 0 340 440" class="colombia-map" role="img"
-               aria-label="Mapa estilizado de Colombia dividido en biomas" id="ts-map">
-
-            <!-- Pacífico -->
-            <path class="map-region" id="ts-r-pacifico"
-              d="M 18,90 L 82,80 L 94,112 L 102,172 L 106,242 L 100,300 L 78,342 L 44,350 L 20,320 L 14,240 L 18,162 Z"
-              fill="#1b5434" stroke="#0d2b1c" stroke-width="1.5"
-              data-biome="Pacífico"
-              data-eco="Selva húmeda del Chocó — el bioma más lluvioso del planeta"
-              data-desc="Registra más de 9.000 mm de lluvia al año. Hogar del 8% de la biodiversidad mundial, el oso de anteojos y más de 800 especies de aves."
-              aria-label="Bioma Pacífico"/>
-
-            <!-- Caribe -->
-            <path class="map-region" id="ts-r-caribe"
-              d="M 82,80 L 133,52 L 194,33 L 254,28 L 294,34 L 326,55 L 330,80 L 304,96 L 258,88 L 198,84 L 152,89 L 108,92 Z"
-              fill="#206a3c" stroke="#0d2b1c" stroke-width="1.5"
-              data-biome="Caribe"
-              data-eco="Manglares, arrecifes y bosque seco tropical"
-              data-desc="Archipiélagos de coral, flamencos rosas en la Guajira, manatíes en la Sierra Nevada y el bosque seco más diverso del Neotrópico."
-              aria-label="Bioma Caribe"/>
-
-            <!-- Andes -->
-            <path class="map-region" id="ts-r-andes"
-              d="M 108,90 L 152,84 L 196,82 L 214,112 L 224,172 L 214,242 L 204,304 L 188,364 L 163,384 L 138,374 L 118,312 L 106,242 L 102,170 Z"
-              fill="#155030" stroke="#0d2b1c" stroke-width="1.5"
-              data-biome="Andes"
-              data-eco="Páramos y bosques andinos — la fábrica de agua"
-              data-desc="Los páramos colombianos producen el 70% del agua potable del país. El cóndor de los Andes y el oso de anteojos son sus guardianes simbólicos."
-              aria-label="Bioma Andes"/>
-
-            <!-- Orinoquía -->
-            <path class="map-region" id="ts-r-orinoquia"
-              d="M 214,86 L 258,86 L 304,96 L 330,80 L 340,132 L 340,202 L 332,282 L 308,332 L 278,342 L 244,320 L 224,260 L 218,192 L 218,130 Z"
-              fill="#3a6015" stroke="#0d2b1c" stroke-width="1.5"
-              data-biome="Orinoquía"
-              data-eco="Llanos y sabanas inundables"
-              data-desc="Los Llanos Orientales albergan al chigüiro — el roedor más grande del mundo —, la garza morena y tortugas del Orinoco. Inundados en invierno, dorados en verano."
-              aria-label="Bioma Orinoquía"/>
-
-            <!-- Amazonia -->
-            <path class="map-region" id="ts-r-amazonia"
-              d="M 153,378 L 188,362 L 224,352 L 258,358 L 290,372 L 308,404 L 292,436 L 250,444 L 198,444 L 158,434 L 144,412 Z"
-              fill="#0e3d1f" stroke="#0d2b1c" stroke-width="1.5"
-              data-biome="Amazonia"
-              data-eco="Selva amazónica — el pulmón verde de Colombia"
-              data-desc="35% del territorio colombiano. Más de 12.000 especies de plantas, delfines rosados, jaguares y pueblos indígenas ancestrales guardianes del bosque."
-              aria-label="Bioma Amazonia"/>
-
-            <!-- Insular -->
-            <ellipse class="map-region" id="ts-r-insular"
-              cx="32" cy="44" rx="13" ry="9"
-              fill="#1a6040" stroke="#0d2b1c" stroke-width="1.5"
-              data-biome="Insular"
-              data-eco="Archipiélago de San Andrés y Providencia"
-              data-desc="La mayor área marina protegida de Colombia: arrecifes de coral vivos, pastizales de manatí y la única lengua creole del Caribe colombiano."
-              aria-label="Bioma Insular"/>
-
-            <!-- Labels -->
-            <text x="56"  y="210" class="map-region-lbl" text-anchor="middle">Pacífico</text>
-            <text x="203" y="58"  class="map-region-lbl" text-anchor="middle">Caribe</text>
-            <text x="163" y="238" class="map-region-lbl" text-anchor="middle">Andes</text>
-            <text x="278" y="210" class="map-region-lbl" text-anchor="middle">Orinoquía</text>
-            <text x="225" y="408" class="map-region-lbl" text-anchor="middle">Amazonia</text>
-            <text x="32"  y="60"  class="map-region-lbl" text-anchor="middle" style="font-size:7px">Insular</text>
-          </svg>
-        </div>
-
-        <!-- Sound panel -->
-        <div class="rv" style="transition-delay:.12s">
-          <div class="tsuena-sound-panel">
-            <div class="ts-idle" id="ts-idle">
-              <svg class="ts-idle-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(106,191,75,.4)" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                <path d="M3 18v-6a9 9 0 0118 0v6"/>
-                <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
-              </svg>
-              Selecciona un bioma en el mapa para escuchar su paisaje sonoro
-            </div>
-            <div class="ts-sound-info" id="ts-sound-info">
-              <div class="ts-sound-biome" id="ts-sound-biome-name"></div>
-              <div class="ts-sound-eco"   id="ts-sound-eco-name"></div>
-              <div class="ts-soundwave" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
-              <p class="ts-sound-desc" id="ts-sound-desc"></p>
-            </div>
-          </div>
-          <div style="margin-top:1.6rem">
-            <a href="#" class="btn-ts-lime">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
-              Explorar el archivo sonoro
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- PANEL C: Empresa + Educación -->
-    <div class="tsuena-panel" id="ts-panel-c" role="tabpanel" aria-labelledby="ts-tab-c">
-      <div class="tsuena-cta-grid">
-
-        <div class="tsuena-cta-card tsuena-cta-empresa rv">
-          <span class="tsuena-cta-tag">T'SUENA · Empresa</span>
-          <h3 class="tsuena-cta-h">¿Tu empresa depende de ecosistemas colombianos?</h3>
-          <p class="tsuena-cta-p">Conoce el <strong style="color:var(--earth-light)">Diagnóstico de Dependencia Ecosistémica</strong>: una herramienta desarrollada por ecólogos COLNADE que evalúa el riesgo ecosistémico de tu operación y te ayuda a anticiparte a la regulación ambiental.</p>
-          <a href="#" class="btn-ts-earth">
-            Soy empresa
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <div class="tsuena-cta-card tsuena-cta-educ rv" style="transition-delay:.1s">
-          <span class="tsuena-cta-tag">T'SUENA · Educación</span>
-          <h3 class="tsuena-cta-h">Lleva a un ecólogo a tu colegio — gratis.</h3>
-          <p class="tsuena-cta-p">A través de <strong style="color:var(--green-light)">T'SUENA Educación</strong>, ecólogos certificados de COLNADE visitan colegios públicos y privados para hablar sobre biodiversidad, vocación ecológica y las oportunidades que ofrece la carrera de ecología en Colombia.</p>
-          <a href="#" class="btn-ts-lime">
-            Soy docente
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- IES ALIADAS -->
-<section class="ies sec" id="ies-aliadas" aria-label="Instituciones de Educación Superior aliadas a COLNADE">
-  <div class="container">
-    <div class="ies-label-row">
-      <p class="ies-label">Instituciones aliadas</p>
-      <h2 class="ies-title">Universidades con programas de Ecología en COLNADE</h2>
-      <p class="ies-desc">Programas acreditados que integran nuestra red profesional nacional</p>
-    </div>
-    <div class="ies-strip">
-      <a href="https://www.javeriana.edu.co" target="_blank" rel="noopener noreferrer" class="ies-logo" aria-label="Pontificia Universidad Javeriana">
-        <img src="logo-javeriana.png" alt="Pontificia Universidad Javeriana" loading="lazy">
-        <span>Pontificia Universidad Javeriana</span>
-      </a>
-      <a href="https://www.udea.edu.co" target="_blank" rel="noopener noreferrer" class="ies-logo" aria-label="Universidad de Antioquia">
-        <img src="logo-udea.png" alt="Universidad de Antioquia" loading="lazy">
-        <span>Universidad de Antioquia</span>
-      </a>
-      <a href="https://www.ces.edu.co" target="_blank" rel="noopener noreferrer" class="ies-logo" aria-label="Universidad CES">
-        <img src="logo-ces.png" alt="Universidad CES" loading="lazy">
-        <span>Universidad CES</span>
-      </a>
-      <a href="https://www.unicolmayor.edu.co" target="_blank" rel="noopener noreferrer" class="ies-logo" aria-label="Fundación Universitaria de Popayán">
-        <img src="logo-popayan.png" alt="Fundación Universitaria de Popayán" loading="lazy">
-        <span>Fundación Universitaria de Popayán</span>
-      </a>
-    </div>
-  </div>
-</section>
 
 </main>
 
-<footer class="footer" role="contentinfo">
+<footer class="site-footer" data-od-id="site-footer">
   <div class="container">
-    <div class="footer-top">
+    <div class="site-footer__grid">
       <div>
-        <div class="footer-logo-n">COL<span>NADE</span></div>
-        <div class="footer-tag">Conservamos hoy profesionalmente, el futuro ambiental del planeta</div>
-        <p class="footer-desc">Colegio Nacional de Ecólogos de Colombia. Representamos y potenciamos a los profesionales de la ecología en el territorio nacional desde 2001.</p>
-        <div class="socials" aria-label="Redes sociales">
-          <a href="https://www.instagram.com/colnade/" class="soc" aria-label="Instagram de COLNADE" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://www.linkedin.com/in/colnade/" class="soc" aria-label="LinkedIn de COLNADE" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://web.facebook.com/share/g/1RAGxmf84f/" class="soc" aria-label="Facebook de COLNADE" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-          <a href="https://twitter.com/colnade" class="soc" aria-label="X / Twitter de COLNADE" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 4l16 16M4 20L20 4"/></svg></a>
-          <a href="https://www.youtube.com/channel/UC3_xvvmyXOBX44U0FbOTMIg" class="soc" aria-label="YouTube de COLNADE" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-          <a href="https://chat.whatsapp.com/FbRDKrk412f2FiPN3p5XoS" class="soc" aria-label="WhatsApp COLNADE" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-        </div>
+        <p class="footer-marca">COLNADE <span>·</span> Observatorio</p>
+        <p style="font-size:15px;max-width:42ch;margin:0 0 16px;">Análisis técnico y verificable sobre ecología en Colombia. Un tema nuevo el 28 de cada mes.</p>
+        <p class="meta" style="color:var(--arena);">Colegio Nacional de Ecólogos de Colombia · NIT 900281223-5 · Ley 1284 de 2009</p>
       </div>
       <div>
-        <div class="fcol-t">Navegación</div>
-        <ul class="flinks" role="list">
-          <li><a href="#por-que" class="flink">Por qué COLNADE</a></li>
-          <li><a href="#afiliacion" class="flink">Afiliación</a></li>
-          <li><a href="#banco-empleo" class="flink">Banco de Empleo</a></li>
-          <li><a href="#quienes-somos" class="flink">Quiénes Somos</a></li>
-          <li><a href="#empresas" class="flink">Para Empresas</a></li>
-          <li><a href="#noticias" class="flink">Noticias</a></li>
-          <li><a href="#tsuena" class="flink" style="color:var(--green-light)">T'SUENA</a></li>
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="tema.html">Tema del mes</a></li>
+          <li><a href="analisis.html">Análisis</a></li>
+          <li><a href="tribuna.html">Tribuna</a></li>
+          <li><a href="cifras.html">Cifras</a></li>
+          <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="metodo.html">Método</a></li>
         </ul>
       </div>
       <div>
-        <div class="fcol-t">Afiliados</div>
-        <ul class="flinks" role="list">
-          <li><a href="#afiliacion" class="flink">Proceso de afiliación</a></li>
-          <li><a href="#banco-empleo" class="flink">Subir hoja de vida</a></li>
-          <li><a href="#" class="flink">Descarga tu carné</a></li>
-          <li><a href="#" class="flink">Eventos y capacitaciones</a></li>
-          <li><a href="#" class="flink">Normativa profesional</a></li>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://colnade.co" data-od-id="footer-colnade">colnade.co</a></li>
+          <li><a href="mailto:contacto@colnade.co" data-od-id="footer-email">contacto@colnade.co</a></li>
+          <li><a href="politica-datos.html" data-od-id="footer-politica">Política de tratamiento de datos</a></li>
         </ul>
-      </div>
-      <div>
-        <div class="fcol-t">Contacto</div>
-        <ul class="flinks" role="list">
-          <li><a href="mailto:contacto@colnade.co" class="femail">contacto@colnade.co</a></li>
-          <li><a href="mailto:presidencia@colnade.co" class="femail">presidencia@colnade.co</a></li>
-          <li><span class="flink" style="cursor:default">Bogotá D.C., Colombia</span></li>
-          <li><a href="https://chat.whatsapp.com/FbRDKrk412f2FiPN3p5XoS" class="flink" target="_blank" rel="noopener">WhatsApp Comunidad</a></li>
-        </ul>
-        <div style="margin-top:1.4rem"><a href="#afiliacion" class="btn btn-green" style="font-size:.8rem;padding:.58rem 1.1rem">Afíliate ahora</a></div>
       </div>
     </div>
-    <div class="footer-bot">
-      <p class="flegal">© 2026 COLNADE – Colegio Nacional de Ecólogos de Colombia · NIT 900.281.223-5 · Todos los derechos reservados.</p>
-      <p class="flegal"><a href="#">Política de Privacidad</a> · <a href="#">Términos de Uso</a></p>
-    </div>
+    <p class="site-footer__desc">© 2026 Colegio Nacional de Ecólogos de Colombia. Las columnas de Tribuna expresan la opinión personal de sus autores.</p>
   </div>
 </footer>
 
 <script>
-(function () {
-  /* Boceto dismiss */
-  var bocetoBar     = document.getElementById('boceto-bar');
-  var bocetoBtn     = document.getElementById('boceto-dismiss');
-  if (bocetoBtn && bocetoBar) {
-    bocetoBtn.addEventListener('click', function () {
-      bocetoBar.style.height   = bocetoBar.offsetHeight + 'px';
-      bocetoBar.style.overflow = 'hidden';
-      bocetoBar.style.transition = 'height .3s ease, padding .3s ease, opacity .3s ease';
-      requestAnimationFrame(function () {
-        bocetoBar.style.height  = '0';
-        bocetoBar.style.padding = '0';
-        bocetoBar.style.opacity = '0';
+  document.documentElement.classList.add('js');
+  (function () {
+    var toggle = document.querySelector('[data-od-id="nav-toggle"]');
+    var nav = document.querySelector('[data-od-id="site-nav"]');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      setTimeout(function () { bocetoBar.style.display = 'none'; }, 310);
-    });
-  }
-
-  /* Mobile nav */
-  var toggle = document.getElementById('nav-toggle');
-  var menu   = document.getElementById('nav-menu');
-  if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      var open = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-    });
-    menu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Abrir menú');
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
       });
-    });
-  }
-
-  /* Form helpers */
-  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-  function setErr(fid, eid, on) {
-    var f = document.getElementById(fid), e = document.getElementById(eid);
-    if (f) f.classList.toggle('err', on);
-    if (e) e.classList.toggle('show', on);
-  }
-  function wire(fid, eid, fn) {
-    var el = document.getElementById(fid);
-    if (!el) return;
-    el.addEventListener('blur',  function () { setErr(fid, eid, !fn(el.value)); });
-    el.addEventListener('input', function () { if (el.classList.contains('err') && fn(el.value)) setErr(fid, eid, false); });
-  }
-
-  /* Affiliation form */
-  var rules1 = [
-    { fid:'a-nombre', eid:'e-nombre', fn: function(v){ return v.trim().length >= 3; } },
-    { fid:'a-email',  eid:'e-email',  fn: isEmail },
-    { fid:'a-ciudad', eid:'e-ciudad', fn: function(v){ return v.trim().length >= 2; } },
-    { fid:'a-univ',   eid:'e-univ',   fn: function(v){ return v.trim().length >= 3; } }
-  ];
-  rules1.forEach(function (r) { wire(r.fid, r.eid, r.fn); });
-  var fa = document.getElementById('form-aff');
-  if (fa) fa.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var ok = true;
-    rules1.forEach(function (r) {
-      var el = document.getElementById(r.fid);
-      var pass = el && r.fn(el.value);
-      setErr(r.fid, r.eid, !pass);
-      if (!pass) ok = false;
-    });
-    if (!ok) return;
-    var btn = document.getElementById('btn-aff');
-    if (btn) { btn.textContent = '¡Solicitud enviada con éxito!'; btn.disabled = true; btn.style.opacity = '.7'; }
-  });
-
-  /* Companies form */
-  var rules2 = [
-    { fid:'c-empresa',  eid:'e-empresa',  fn: function(v){ return v.trim().length >= 2; } },
-    { fid:'c-contacto', eid:'e-contacto', fn: function(v){ return v.trim().length >= 3; } },
-    { fid:'c-email',    eid:'e-co-email', fn: isEmail }
-  ];
-  rules2.forEach(function (r) { wire(r.fid, r.eid, r.fn); });
-  var fc = document.getElementById('form-co');
-  if (fc) fc.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var ok = true;
-    rules2.forEach(function (r) {
-      var el = document.getElementById(r.fid);
-      var pass = el && r.fn(el.value);
-      setErr(r.fid, r.eid, !pass);
-      if (!pass) ok = false;
-    });
-    if (!ok) return;
-    var btn = document.getElementById('btn-co');
-    if (btn) { btn.textContent = '¡Consulta enviada exitosamente!'; btn.disabled = true; btn.style.opacity = '.7'; }
-  });
-
-  /* Portal — constancia de afiliación */
-  var rulesCa = [
-    { fid:'ca-nombre', eid:'e-ca-nombre', fn: function(v){ return v.trim().length >= 3; } },
-    { fid:'ca-cedula', eid:'e-ca-cedula', fn: function(v){ return /^\d{5,12}$/.test(v.trim()); } },
-    { fid:'ca-email',  eid:'e-ca-email',  fn: isEmail },
-    { fid:'ca-year',   eid:'e-ca-year',   fn: function(v){ var y=parseInt(v,10); return y>=1990 && y<=2026; } }
-  ];
-  rulesCa.forEach(function(r){ wire(r.fid, r.eid, r.fn); });
-  var fca = document.getElementById('form-constancia');
-  if (fca) fca.addEventListener('submit', function(e){
-    e.preventDefault();
-    var ok = true;
-    rulesCa.forEach(function(r){
-      var el = document.getElementById(r.fid);
-      var pass = el && r.fn(el.value);
-      setErr(r.fid, r.eid, !pass);
-      if (!pass) ok = false;
-    });
-    if (!ok) return;
-    var btn = fca.querySelector('button[type=submit]');
-    if (btn) { btn.textContent = '¡Solicitud enviada!'; btn.disabled = true; btn.style.opacity = '.7'; }
-    var okEl = document.getElementById('ok-constancia');
-    if (okEl) { okEl.style.display = 'flex'; }
-  });
-
-  /* Portal — tarjeta profesional */
-  var rulesTp = [
-    { fid:'tp-nombre',    eid:'e-tp-nombre',    fn: function(v){ return v.trim().length >= 3; } },
-    { fid:'tp-cedula',    eid:'e-tp-cedula',    fn: function(v){ return /^\d{5,12}$/.test(v.trim()); } },
-    { fid:'tp-tarjeta',   eid:'e-tp-tarjeta',   fn: function(v){ return v.trim().length >= 3; } },
-    { fid:'tp-email',     eid:'e-tp-email',     fn: isEmail },
-    { fid:'tp-direccion', eid:'e-tp-direccion', fn: function(v){ return v.trim().length >= 8; } }
-  ];
-  rulesTp.forEach(function(r){ wire(r.fid, r.eid, r.fn); });
-  var ftp = document.getElementById('form-tarjeta');
-  if (ftp) ftp.addEventListener('submit', function(e){
-    e.preventDefault();
-    var ok = true;
-    rulesTp.forEach(function(r){
-      var el = document.getElementById(r.fid);
-      var pass = el && r.fn(el.value);
-      setErr(r.fid, r.eid, !pass);
-      if (!pass) ok = false;
-    });
-    if (!ok) return;
-    var btn = ftp.querySelector('button[type=submit]');
-    if (btn) { btn.textContent = '¡Solicitud enviada!'; btn.disabled = true; btn.style.opacity = '.7'; }
-    var okEl = document.getElementById('ok-tarjeta');
-    if (okEl) { okEl.style.display = 'flex'; }
-  });
-
-  /* T'SUENA — wave bars + tabs + map */
-  (function() {
-    // Generate animated wave bars in background
-    var wb = document.getElementById('ts-wave-bg');
-    if (wb) {
-      for (var i = 0; i < 70; i++) {
-        var s = document.createElement('span');
-        s.style.height = (12 + Math.random() * 52) + 'px';
-        s.style.animationDelay = (Math.random() * 2.2) + 's';
-        wb.appendChild(s);
-      }
+      nav.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
-    // Tab switching
-    document.querySelectorAll('.tsuena-tab').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var panelId = btn.getAttribute('data-ts-panel');
-        document.querySelectorAll('.tsuena-tab').forEach(function(t) {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
+    var revealed = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && revealed.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
         });
-        document.querySelectorAll('.tsuena-panel').forEach(function(p) {
-          p.classList.remove('active');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        var panel = document.getElementById(panelId);
-        if (panel) panel.classList.add('active');
-      });
-    });
-    // Map region interaction
-    document.querySelectorAll('#ts-map .map-region').forEach(function(r) {
-      function activate() {
-        document.querySelectorAll('#ts-map .map-region').forEach(function(x) { x.classList.remove('ts-r-active'); });
-        r.classList.add('ts-r-active');
-        var idle  = document.getElementById('ts-idle');
-        var info  = document.getElementById('ts-sound-info');
-        var bname = document.getElementById('ts-sound-biome-name');
-        var ename = document.getElementById('ts-sound-eco-name');
-        var edesc = document.getElementById('ts-sound-desc');
-        if (idle)  idle.style.display  = 'none';
-        if (info)  { info.style.display = 'block'; info.classList.add('on'); }
-        if (bname) bname.textContent = r.getAttribute('data-biome')  || '';
-        if (ename) ename.textContent = r.getAttribute('data-eco')     || '';
-        if (edesc) edesc.textContent = r.getAttribute('data-desc')    || '';
-      }
-      r.addEventListener('click',      activate);
-      r.addEventListener('mouseenter', activate);
-    });
+      }, { threshold: 0.12 });
+      revealed.forEach(function (el) { io.observe(el); });
+    } else if (revealed.length) {
+      revealed.forEach(function (el) { el.classList.add('is-visible'); });
+    }
   })();
-
-  /* Scroll reveal */
-  if (window.IntersectionObserver) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.10 });
-    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
-  }
-})();
 </script>
 </body>
 </html>

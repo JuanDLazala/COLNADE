@@ -1,3 +1,7 @@
+# Documentos de trabajo: se quedan en el disco, no en el repositorio público.
+# Aquí viven auditorías, borradores y notas internas que no deben publicarse.
+_notas/
+
 # Exportaciones de herramientas de diseño — no son fuente del sitio
 *.zip
 

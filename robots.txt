@@ -1,3 +1,6 @@
-# BOCETO — desindexar hasta lanzamiento oficial
+# Entorno de revisión del Observatorio COLNADE.
+# El sitio definitivo vive en colnade.co/observatorio. Este dominio no debe
+# indexarse nunca: si lo hiciera, competiría con el sitio real por las mismas
+# páginas y Google acabaría mostrando la maqueta en vez del Colegio.
 User-agent: *
 Disallow: /
