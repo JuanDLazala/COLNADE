@@ -102,7 +102,7 @@
       <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
       <a href="cifras.html" data-od-id="nav-cifras">Cifras</a>
       <a href="biblioteca.html" data-od-id="nav-biblioteca">Biblioteca</a>
-      <a href="index.html#metodo" data-od-id="nav-metodo">Método</a>
+      <a href="metodo.html" data-od-id="nav-metodo">Método</a>
     </nav>
   </div>
 </header>
@@ -159,6 +159,7 @@
           <p class="citar__texto">Observatorio COLNADE (2026). <i>El terremoto del 10 de agosto no fue causado por el fracking, y esa mentira le costó al debate ambiental</i>. Colegio Nacional de Ecólogos de Colombia. https://observatorio.colnade.co/analisis/terremoto-fracking/</p>
         </div>
 
+        <p style="margin:18px 0 0;"><button class="citar-btn" type="button" data-cita="Observatorio COLNADE (2026). El terremoto del 10 de agosto no fue causado por el fracking, y esa mentira le costó al debate ambiental. Colegio Nacional de Ecólogos de Colombia. https://observatorio.colnade.co/analisis.html">Copiar cita</button></p>
         <p class="meta" style="margin-top:32px;">Registro de correcciones: ninguna hasta la fecha.</p>
       </div>
     </div>
@@ -181,6 +182,7 @@
           <li><a href="tribuna.html">Tribuna</a></li>
           <li><a href="cifras.html">Cifras</a></li>
           <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="metodo.html">Método</a></li>
         </ul>
       </div>
       <div>
@@ -260,6 +262,39 @@
       var pedida = location.hash.replace('#', '');
       var match = tabs.filter(function (t) { return t.getAttribute('data-tab') === pedida; })[0];
       activar(match || tabs.filter(function (t) { return t.classList.contains('is-active'); })[0] || tabs[0], false);
+    }
+
+    // --- Copiar cita ---
+    document.querySelectorAll('.citar-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var cita = btn.getAttribute('data-cita') || '';
+        var fin = function () {
+          var previo = btn.textContent;
+          btn.classList.add('is-copiado');
+          btn.textContent = 'Cita copiada';
+          setTimeout(function () {
+            btn.classList.remove('is-copiado');
+            btn.textContent = previo;
+          }, 2200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(cita).then(fin, function () { respaldo(cita, fin); });
+        } else {
+          respaldo(cita, fin);
+        }
+      });
+    });
+
+    function respaldo(texto, hecho) {
+      var ta = document.createElement('textarea');
+      ta.value = texto;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); hecho(); } catch (e) { /* sin portapapeles */ }
+      document.body.removeChild(ta);
     }
   })();
 </script>

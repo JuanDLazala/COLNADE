@@ -93,7 +93,7 @@
       <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
       <a href="cifras.html" data-od-id="nav-cifras">Cifras</a>
       <a href="biblioteca.html" data-od-id="nav-biblioteca">Biblioteca</a>
-      <a href="index.html#metodo" data-od-id="nav-metodo">Método</a>
+      <a href="metodo.html" data-od-id="nav-metodo">Método</a>
     </nav>
   </div>
 </header>
@@ -164,27 +164,46 @@
   <!-- C · Líneas de observación -->
   <section class="section section--first reveal" data-od-id="lineas" id="lineas">
     <div class="container">
-      <h2 class="section-label">Líneas de observación</h2>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
+        <h2 class="section-label" style="margin:0;">Líneas de observación</h2>
+        <a href="metodo.html" style="font-size:15px;" data-od-id="cta-metodo-lineas">Cómo trabajamos &rarr;</a>
+      </div>
+      <p style="color:var(--tinta-2);max-width:62ch;margin:0 0 var(--space-6);">Tres frentes permanentes. Cada uno abre un tema nuevo el 28 del mes y lo lleva hasta un concepto técnico citable.</p>
+
       <div class="grid grid-3">
         <article class="card" data-od-id="linea-politicas-publicas">
           <span class="tag tag--oliva">Activa</span>
           <h3 class="card__title"><a href="tema.html">Políticas públicas</a></h3>
           <p class="card__excerpt">Seguimiento técnico a las decisiones de política pública con efecto ecológico: planes, reformas, normas y actos administrativos.</p>
-          <p class="meta">Tema actual: ABC del Presidente · 28 ago 2026</p>
+          <div class="linea-meta">
+            <span class="estado estado--curso">En investigación</span>
+            <span class="meta">1 tema abierto</span>
+          </div>
+          <p class="meta" style="margin-top:8px;">Tema actual: <a href="tema.html">ABC del Presidente</a> · abierto el 28 ago 2026</p>
         </article>
+
         <article class="card" data-od-id="linea-tendencias">
           <span class="tag tag--ambar">Próximamente</span>
           <h3 class="card__title">Tendencias</h3>
           <p class="card__excerpt">Conflictos socioambientales, controversias públicas y fenómenos emergentes que exigen lectura técnica.</p>
-          <p class="meta">Apertura: 28 de septiembre de 2026</p>
+          <div class="linea-meta">
+            <span class="estado estado--previsto">Sin abrir</span>
+            <span class="meta">Apertura: 28 sep 2026</span>
+          </div>
         </article>
+
         <article class="card" data-od-id="linea-nuevos-paradigmas">
           <span class="tag tag--ambar">Próximamente</span>
           <h3 class="card__title">Nuevos paradigmas e innovación</h3>
           <p class="card__excerpt">Enfoques emergentes en la práctica ecológica: soluciones basadas en la naturaleza, restauración e innovación aplicada.</p>
-          <p class="meta">Apertura: octubre de 2026</p>
+          <div class="linea-meta">
+            <span class="estado estado--previsto">Sin abrir</span>
+            <span class="meta">Apertura: octubre 2026</span>
+          </div>
         </article>
       </div>
+
+      <p class="meta" style="margin-top:var(--space-5);max-width:70ch;">Estados de un tema: <span class="estado estado--abierto" style="font-size:12px;">Abierto</span> &nbsp; <span class="estado estado--curso" style="font-size:12px;">En investigación</span> &nbsp; <span class="estado estado--publicado" style="font-size:12px;">Con concepto publicado</span> &nbsp; <span class="estado estado--previsto" style="font-size:12px;">Sin abrir</span></p>
     </div>
   </section>
 
@@ -249,7 +268,7 @@
           <p class="card__excerpt">Opinión personal del autor. No representa la posición institucional del Colegio.</p>
         </article>
       </div>
-      <p style="margin-top:32px;font-size:16px;color:var(--petroleo);" data-od-id="tribuna-invitacion">¿Es ecólogo y quiere publicar aquí? <a href="mailto:contacto@colnade.co">Escríbanos</a>.</p>
+      <p style="margin-top:32px;font-size:16px;" data-od-id="tribuna-invitacion">¿Es ecólogo colegiado y quiere publicar aquí? <a href="mailto:contacto@colnade.co?subject=Propuesta%20para%20Tribuna">Proponga su columna</a> o vea <a href="metodo.html#participacion">cómo participar en el Observatorio</a>.</p>
     </div>
   </section>
 
@@ -260,12 +279,33 @@
       <div class="metodo-blocks">
         <div class="metodo-block">
           <p>Una unidad de análisis del Colegio Nacional de Ecólogos de Colombia dedicada a producir lecturas técnicas y verificables sobre las decisiones con efecto ecológico que se toman en el país.</p>
-          <p style="color:var(--gris);font-size:17px;">No es una organización ambiental ni una campaña: es una fuente. Cada dato lleva su fuente y su fecha de corte al lado. Cada pieza es citable.</p>
-          <a class="btn btn--ghost" href="index.html#metodo" data-od-id="cta-metodo">Cómo trabajamos · Método</a>
+          <p style="color:var(--tinta-2);font-size:17px;">No es una organización ambiental ni una campaña: es una fuente. Cada dato lleva su fuente y su fecha de corte al lado. Cada pieza es citable. Y cuando nos equivocamos, la corrección queda escrita al pie.</p>
+          <a class="btn btn--ghost" href="metodo.html" data-od-id="cta-metodo">Método, fuentes y Comité Editorial</a>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- G · Convocatoria y suscripción -->
+  <section class="section reveal" data-od-id="convocatoria">
+    <div class="container">
+      <div class="convocatoria">
+        <p class="section-label" style="color:var(--ambar);">Un tema nuevo el 28 de cada mes</p>
+        <h2 style="max-width:22ch;">No se pierda el próximo concepto técnico</h2>
+        <p>Le escribimos cuando se abre un tema y cuando se publica un concepto. Si es periodista, le llega antes de que salga.</p>
+
+        <form class="form-suscribir" data-muestra="conectar a la lista de correo" data-od-id="form-suscribir" onsubmit="return false;">
+          <label class="visually-hidden" for="email-observatorio">Correo electrónico</label>
+          <input type="email" id="email-observatorio" name="email" placeholder="Su correo electrónico" required autocomplete="email">
+          <button class="btn" type="submit">Suscribirme</button>
+          <p class="nota-legal">Solo el Observatorio: apertura de temas y publicación de conceptos. Puede darse de baja en cualquier momento. Tratamos sus datos conforme al <a href="../politica-datos.html">aviso de privacidad</a>.</p>
+        </form>
+
+        <p style="margin-top:28px;padding-top:22px;border-top:1px solid rgba(195,173,142,.35);margin-bottom:0;">¿Es ecólogo colegiado? También puede aportar: <a href="metodo.html#participacion">escriba en Tribuna o responda una convocatoria</a>.</p>
+      </div>
+    </div>
+  </section>
+
 
 </main>
 
@@ -285,6 +325,7 @@
           <li><a href="tribuna.html">Tribuna</a></li>
           <li><a href="cifras.html">Cifras</a></li>
           <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="metodo.html">Método</a></li>
         </ul>
       </div>
       <div>

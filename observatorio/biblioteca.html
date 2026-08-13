@@ -91,7 +91,7 @@
       <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
       <a href="cifras.html" data-od-id="nav-cifras">Cifras</a>
       <a href="biblioteca.html" class="is-active" aria-current="page" data-od-id="nav-biblioteca">Biblioteca</a>
-      <a href="index.html#metodo" data-od-id="nav-metodo">Método</a>
+      <a href="metodo.html" data-od-id="nav-metodo">Método</a>
     </nav>
   </div>
 </header>
@@ -106,68 +106,105 @@
 
       <p class="section-label">Biblioteca</p>
       <h1 style="max-width:18ch;">Repositorio documental del Observatorio</h1>
-      <p class="aviso-muestra solo-revision">Los seis documentos listados son los que van en la biblioteca de lanzamiento. <strong>Los archivos todavía no están cargados</strong>: los botones quedan activos cuando se suban los PDF. Lo que se aprueba aquí es el buscador, el filtro por tipo y la ficha de cada documento.</p>
-      <p class="lead" style="max-width:60ch;margin-bottom:var(--space-6);">Los documentos que sustentan el trabajo del Observatorio y el ejercicio de la profesión, organizados por tipo. Los repositorios de cada tema se alimentan de aquí.</p>
+      <p class="aviso-muestra solo-revision">Los documentos listados son los que abren la biblioteca y su clasificación es definitiva. <strong>Los archivos todavía no están cargados</strong> y el contador de «citado en» se llenará solo cuando haya piezas publicadas. Lo que se aprueba aquí es el buscador, el filtro por colección, la ficha de cada documento y el botón de copiar cita.</p>
+      <p class="lead" style="max-width:60ch;margin-bottom:var(--space-6);">Las cuatro colecciones que sustentan cada pieza del Observatorio: los documentos oficiales del Estado, la normativa vigente, la literatura científica y la producción propia del Colegio. El repositorio de cada tema se alimenta de aquí, y cada documento trae su cita lista para copiar.</p>
 
       <div class="search-bar" data-od-id="search-bar">
         <input class="search-input" type="search" placeholder="Buscar por título o referencia…" aria-label="Buscar documentos" data-od-id="search-input">
       </div>
 
       <div class="filters" data-od-id="filters" role="group" aria-label="Filtrar por tipo">
-        <button class="filter-chip is-active" data-filter="todos" data-od-id="filtro-todos">Todos</button>
-        <button class="filter-chip" data-filter="normatividad" data-od-id="filtro-normatividad">Normatividad</button>
-        <button class="filter-chip" data-filter="estatutos" data-od-id="filtro-estatutos">Estatutos</button>
-        <button class="filter-chip" data-filter="actas" data-od-id="filtro-actas">Actas</button>
-        <button class="filter-chip" data-filter="formatos" data-od-id="filtro-formatos">Formatos</button>
-        <button class="filter-chip" data-filter="conceptos" data-od-id="filtro-conceptos">Conceptos COLNADE</button>
+        <button class="filter-chip is-active" aria-pressed="true" data-filter="todos" data-od-id="filtro-todos">Todas</button>
+        <button class="filter-chip" aria-pressed="false" data-filter="oficiales" data-od-id="filtro-oficiales">Documentos oficiales</button>
+        <button class="filter-chip" aria-pressed="false" data-filter="normativa" data-od-id="filtro-normativa">Normativa</button>
+        <button class="filter-chip" aria-pressed="false" data-filter="cientifica" data-od-id="filtro-cientifica">Literatura científica</button>
+        <button class="filter-chip" aria-pressed="false" data-filter="conceptos" data-od-id="filtro-conceptos">Conceptos COLNADE</button>
       </div>
 
       <div id="doc-list" data-od-id="doc-list">
-        <article class="doc-row" data-od-id="doc-ley-1284" data-tipo="normatividad">
+        <article class="doc-row" data-od-id="doc-ley-1284" data-tipo="normativa">
           <div>
             <h3 class="doc-row__title">Ley 1284 de 2009 — ejercicio de la profesión de ecólogo</h3>
-            <p class="doc-row__meta"><b>Normatividad</b> · 2009 · PDF</p>
+            <p class="doc-row__meta"><b>Normativa</b> · Congreso de la República · 2009 · citado en 4 piezas del Observatorio</p>
           </div>
-          <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true" data-od-id="doc-descargar">Descargar</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="Congreso de la República de Colombia (2009). Ley 1284 de 2009, por la cual se reglamenta el ejercicio de la profesión de Ecología. Diario Oficial.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
         </article>
-        <article class="doc-row" data-od-id="doc-estatutos" data-tipo="estatutos">
+        <article class="doc-row" data-od-id="doc-constitucion" data-tipo="normativa">
+          <div>
+            <h3 class="doc-row__title">Constitución Política de Colombia — artículos ambientales 79, 80 y 95-8</h3>
+            <p class="doc-row__meta"><b>Normativa</b> · Asamblea Nacional Constituyente · 1991 · citado en 3 piezas del Observatorio</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="Asamblea Nacional Constituyente (1991). Constitución Política de Colombia, artículos 79, 80 y 95 numeral 8.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
+        </article>
+        <article class="doc-row" data-od-id="doc-estatutos" data-tipo="conceptos">
           <div>
             <h3 class="doc-row__title">Estatutos del Colegio Nacional de Ecólogos de Colombia</h3>
-            <p class="doc-row__meta"><b>Estatutos</b> · 2025 · PDF</p>
+            <p class="doc-row__meta"><b>Conceptos COLNADE</b> · COLNADE · 2025 · citado en 2 piezas del Observatorio</p>
           </div>
-          <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true" data-od-id="doc-descargar">Descargar</span>
-        </article>
-        <article class="doc-row" data-od-id="doc-tarifas" data-tipo="normatividad">
-          <div>
-            <h3 class="doc-row__title">Resolución de tarifas de matrícula profesional 2026</h3>
-            <p class="doc-row__meta"><b>Normatividad</b> · 2026 · PDF</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="Colegio Nacional de Ecólogos de Colombia (2025). Estatutos.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
           </div>
-          <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true" data-od-id="doc-descargar">Descargar</span>
-        </article>
-        <article class="doc-row" data-od-id="doc-acta" data-tipo="actas">
-          <div>
-            <h3 class="doc-row__title">Acta de asamblea general ordinaria</h3>
-            <p class="doc-row__meta"><b>Actas</b> · 2026 · PDF</p>
-          </div>
-          <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true" data-od-id="doc-descargar">Descargar</span>
-        </article>
-        <article class="doc-row" data-od-id="doc-formulario" data-tipo="formatos">
-          <div>
-            <h3 class="doc-row__title">Formulario de solicitud de matrícula profesional</h3>
-            <p class="doc-row__meta"><b>Formatos</b> · 2026 · DOCX</p>
-          </div>
-          <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true" data-od-id="doc-descargar">Descargar</span>
         </article>
         <article class="doc-row" data-od-id="doc-ficha-rue" data-tipo="conceptos">
           <div>
             <h3 class="doc-row__title">Registro Único de Ecólogos — ficha metodológica</h3>
-            <p class="doc-row__meta"><b>Conceptos COLNADE</b> · 2026 · PDF</p>
+            <p class="doc-row__meta"><b>Conceptos COLNADE</b> · Observatorio COLNADE · 2026 · citado en 5 piezas del Observatorio</p>
           </div>
-          <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true" data-od-id="doc-descargar">Descargar</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="Observatorio COLNADE (2026). Registro Único de Ecólogos: ficha metodológica. Colegio Nacional de Ecólogos de Colombia.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
+        </article>
+        <article class="doc-row" data-od-id="doc-snies" data-tipo="oficiales">
+          <div>
+            <h3 class="doc-row__title">SNIES — programas de Ecología con registro calificado</h3>
+            <p class="doc-row__meta"><b>Documentos oficiales</b> · Ministerio de Educación Nacional · 2026 · citado en 3 piezas del Observatorio</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="Ministerio de Educación Nacional (2026). Sistema Nacional de Información de la Educación Superior (SNIES). Consulta de programas.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
+        </article>
+        <article class="doc-row" data-od-id="doc-tarifas" data-tipo="oficiales">
+          <div>
+            <h3 class="doc-row__title">Resolución de tarifas de matrícula profesional 2026</h3>
+            <p class="doc-row__meta"><b>Documentos oficiales</b> · COLNADE · 2026 · citado en 1 pieza del Observatorio</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="Colegio Nacional de Ecólogos de Colombia (2026). Resolución de tarifas de matrícula profesional.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
+        </article>
+        <article class="doc-row" data-od-id="doc-ipbes" data-tipo="cientifica">
+          <div>
+            <h3 class="doc-row__title">IPBES — Evaluación global sobre biodiversidad y servicios ecosistémicos</h3>
+            <p class="doc-row__meta"><b>Literatura científica</b> · IPBES · 2019 · citado en 6 piezas del Observatorio</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="IPBES (2019). Global Assessment Report on Biodiversity and Ecosystem Services. Resumen para responsables de políticas.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
+        </article>
+        <article class="doc-row" data-od-id="doc-ipcc" data-tipo="cientifica">
+          <div>
+            <h3 class="doc-row__title">IPCC AR6 — Informe de síntesis</h3>
+            <p class="doc-row__meta"><b>Literatura científica</b> · IPCC · 2023 · citado en 4 piezas del Observatorio</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <button class="citar-btn" type="button" data-cita="IPCC (2023). Climate Change 2023: Synthesis Report. Contribución de los Grupos de Trabajo I, II y III al Sexto Informe de Evaluación.">Copiar cita</button>
+            <span class="btn btn--ghost is-disabled" data-muestra="archivo pendiente de cargar" aria-disabled="true">Consultar</span>
+          </div>
         </article>
       </div>
 
-      <p class="meta" id="doc-empty" hidden style="padding:24px 0;color:var(--gris);">No hay documentos que coincidan con la búsqueda.</p>
+      <p class="meta" id="doc-empty" hidden style="padding:24px 0;color:var(--tinta-2);">No hay documentos que coincidan con la búsqueda.</p>
 
     </div>
   </section>
@@ -189,6 +226,7 @@
           <li><a href="tribuna.html">Tribuna</a></li>
           <li><a href="cifras.html">Cifras</a></li>
           <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="metodo.html">Método</a></li>
         </ul>
       </div>
       <div>
@@ -268,6 +306,73 @@
       var pedida = location.hash.replace('#', '');
       var match = tabs.filter(function (t) { return t.getAttribute('data-tab') === pedida; })[0];
       activar(match || tabs.filter(function (t) { return t.classList.contains('is-active'); })[0] || tabs[0], false);
+    }
+
+    // --- Copiar cita ---
+    document.querySelectorAll('.citar-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var cita = btn.getAttribute('data-cita') || '';
+        var fin = function () {
+          var previo = btn.textContent;
+          btn.classList.add('is-copiado');
+          btn.textContent = 'Cita copiada';
+          setTimeout(function () {
+            btn.classList.remove('is-copiado');
+            btn.textContent = previo;
+          }, 2200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(cita).then(fin, function () { respaldo(cita, fin); });
+        } else {
+          respaldo(cita, fin);
+        }
+      });
+    });
+
+    function respaldo(texto, hecho) {
+      var ta = document.createElement('textarea');
+      ta.value = texto;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); hecho(); } catch (e) { /* sin portapapeles */ }
+      document.body.removeChild(ta);
+    }
+
+    // --- Biblioteca: filtro por colección + buscador ---
+    var chips  = Array.prototype.slice.call(document.querySelectorAll('.filter-chip'));
+    var filas  = Array.prototype.slice.call(document.querySelectorAll('.doc-row'));
+    var buscar = document.querySelector('.search-input');
+    var vacio  = document.getElementById('doc-empty');
+    if (chips.length && filas.length) {
+      var coleccion = 'todos';
+
+      function aplicar() {
+        var q = (buscar && buscar.value || '').trim().toLowerCase();
+        var visibles = 0;
+        filas.forEach(function (fila) {
+          var okCol = coleccion === 'todos' || fila.getAttribute('data-tipo') === coleccion;
+          var okTxt = !q || fila.textContent.toLowerCase().indexOf(q) !== -1;
+          var ver = okCol && okTxt;
+          fila.hidden = !ver;
+          if (ver) visibles++;
+        });
+        if (vacio) vacio.hidden = visibles > 0;
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.classList.remove('is-active'); c.setAttribute('aria-pressed', 'false'); });
+          chip.classList.add('is-active');
+          chip.setAttribute('aria-pressed', 'true');
+          coleccion = chip.getAttribute('data-filter');
+          aplicar();
+        });
+      });
+      if (buscar) buscar.addEventListener('input', aplicar);
+      aplicar();
     }
   })();
 </script>

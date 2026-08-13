@@ -836,3 +836,150 @@ table.data tr:hover td { background: var(--hueso); }
   pointer-events: none;
   user-select: none;
 }
+
+/* ============================================================
+   CICLO DEL TEMA
+   El lector tiene que ver que detrás de un concepto hay un
+   procedimiento con etapas, no una opinión publicada un martes.
+   ============================================================ */
+
+.ciclo {
+  list-style: none;
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  counter-reset: etapa;
+  border: 1px solid var(--arena);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ciclo__etapa {
+  flex: 1 1 160px;
+  padding: 14px 18px 14px 20px;
+  border-right: 1px solid var(--arena);
+  background: var(--blanco);
+  position: relative;
+  min-width: 0;
+}
+.ciclo__etapa:last-child { border-right: 0; }
+.ciclo__nombre {
+  display: block;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 14px;
+  color: var(--tinta-3);
+  line-height: 1.25;
+}
+.ciclo__fecha { display: block; font-size: 13px; color: var(--tinta-2); margin-top: 3px; }
+
+.ciclo__etapa.is-hecha { background: var(--hueso); }
+.ciclo__etapa.is-hecha .ciclo__nombre::before { content: "✓ "; color: var(--oliva); font-weight: 700; }
+
+.ciclo__etapa.is-actual { background: var(--petroleo); }
+.ciclo__etapa.is-actual .ciclo__nombre { color: var(--blanco); }
+.ciclo__etapa.is-actual .ciclo__fecha { color: var(--arena); }
+.ciclo__etapa.is-actual::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: var(--ambar);
+}
+
+@media (max-width: 640px) {
+  .ciclo { flex-direction: column; }
+  .ciclo__etapa { border-right: 0; border-bottom: 1px solid var(--arena); flex: 1 1 auto; }
+  .ciclo__etapa:last-child { border-bottom: 0; }
+}
+
+/* ---------- Estado de una línea o un tema ---------- */
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  color: var(--tinta-3);
+  white-space: nowrap;
+}
+.estado::before {
+  content: "";
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--arena);
+  flex: 0 0 auto;
+}
+.estado--abierto::before   { background: var(--oliva); }
+.estado--curso::before     { background: var(--ambar); }
+.estado--publicado::before { background: var(--cyan); }
+.estado--previsto::before  { background: none; border: 1.5px solid var(--arena); }
+
+.linea-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--arena);
+}
+
+/* ---------- Copiar cita ---------- */
+
+.citar-btn {
+  background: none;
+  border: 1px solid var(--arena);
+  border-radius: 3px;
+  padding: 7px 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--petroleo);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.citar-btn:hover { border-color: var(--oliva); background: var(--hueso); }
+.citar-btn.is-copiado { border-color: var(--oliva); background: var(--hueso); }
+.citar-btn.is-copiado::before { content: "✓ "; color: var(--oliva); font-weight: 700; }
+
+/* ---------- Convocatoria y suscripción ---------- */
+
+.convocatoria {
+  background: var(--petroleo);
+  color: var(--blanco);
+  border-radius: 4px;
+  padding: 40px 36px;
+}
+.convocatoria h2 { color: var(--blanco); }
+.convocatoria p { color: var(--arena); max-width: 58ch; }
+.convocatoria a { color: var(--ambar); text-decoration-color: var(--ambar); }
+.convocatoria .form-suscribir { margin-top: 26px; }
+
+.form-suscribir { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
+.form-suscribir input[type="email"] {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid var(--arena);
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--carbon);
+  background: var(--blanco);
+}
+.form-suscribir input[type="email"]:focus {
+  outline: none;
+  border-color: var(--oliva);
+  box-shadow: 0 0 0 3px rgba(136, 163, 41, 0.28);
+}
+.form-suscribir .nota-legal { flex: 1 1 100%; font-size: 13.5px; margin: 4px 0 0; }
+.convocatoria .nota-legal { color: var(--arena); }
