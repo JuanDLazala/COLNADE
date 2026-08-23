@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Carlito:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
 <link rel="canonical" href="https://colnade.co/observatorio/tema.html">
 <meta name="theme-color" content="#24474c">
-<link rel="icon" type="image/png" href="mq8otj7v-__1-ID-full-color.png">
-<link rel="apple-touch-icon" href="mq8otj7v-__1-ID-full-color.png">
+<link rel="icon" type="image/png" href="logo-simbolo.png">
+<link rel="apple-touch-icon" href="logo-simbolo.png">
 <meta property="og:site_name" content="Observatorio COLNADE">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
@@ -89,19 +89,19 @@
 <header class="site-header" data-od-id="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" data-od-id="brand-link">
-      <img src="mq8otja6-__5-ID-fullcolor-ST.png" alt="COLNADE" style="height:34px;width:auto;object-fit:contain;">
+      <img class="brand__logo" src="logo-colnade.png" alt="COLNADE">
       <span class="brand__sub">Observatorio</span>
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-od-id="nav-toggle">
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" aria-label="Principal" data-od-id="site-nav">
-      <a href="tema.html" class="is-active" aria-current="page" data-od-id="nav-tema">Tema del mes</a>
+      <a href="tema.html" data-od-id="nav-tema">Tema del mes</a>
+      <a href="participa.html" data-od-id="nav-participa">Participa</a>
       <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
-      <a href="cifras.html" data-od-id="nav-cifras">Cifras</a>
-      <a href="index.html#lineas" data-od-id="nav-lineas">Líneas</a>
+      <a href="hallazgos.html" data-od-id="nav-hallazgos">Hallazgos</a>
+      <a href="lineas.html" data-od-id="nav-lineas">Líneas</a>
       <a href="biblioteca.html" data-od-id="nav-biblioteca">Biblioteca</a>
-      <a href="metodo.html" data-od-id="nav-metodo">Método</a>
     </nav>
   </div>
 </header>
@@ -145,7 +145,7 @@
           <span class="ciclo__fecha">Previsto: 28 de septiembre</span>
         </li>
       </ol>
-      <p class="meta" style="margin:-24px 0 var(--space-6);"><a href="metodo.html#ciclo-metodo">Cómo se produce un concepto técnico</a></p>
+      <p class="meta" style="margin:-24px 0 var(--space-6);"><a href="participa.html#ciclo-metodo">Cómo se produce un concepto técnico</a></p>
 
       <div class="tabs" role="tablist" aria-label="Secciones del tema" data-od-id="tabs-tema">
         <button class="tabs__tab" role="tab" aria-selected="false" data-tab="descripcion" data-od-id="tab-descripcion">Descripción del tema</button>
@@ -262,7 +262,7 @@
             </li>
         </ul>
 
-        <p class="meta" style="margin-top:var(--space-5);">¿Es ecólogo colegiado y quiere escribir sobre este tema? <a href="mailto:contacto@colnade.co?subject=Propuesta%20para%20Tribuna">Proponga su columna</a>.</p>
+        <p class="meta" style="margin-top:var(--space-5);">¿Es ecólogo colegiado y quiere escribir sobre este tema? Participa mediante el formulario y recuerda que debes tener tarjeta profesional. <a href="participa.html#formulario">Clic aquí</a>.</p>
       </div>
 
     </div>
@@ -281,10 +281,11 @@
         <h4>Secciones</h4>
         <ul>
           <li><a href="tema.html">Tema del mes</a></li>
+          <li><a href="participa.html">Participa</a></li>
           <li><a href="tribuna.html">Tribuna</a></li>
-          <li><a href="cifras.html">Cifras</a></li>
+          <li><a href="hallazgos.html">Hallazgos</a></li>
+          <li><a href="lineas.html">Líneas</a></li>
           <li><a href="biblioteca.html">Biblioteca</a></li>
-          <li><a href="metodo.html">Método</a></li>
         </ul>
       </div>
       <div>
@@ -367,5 +368,7 @@
     }
   })();
 </script>
+<script src="assets/hoja.js"></script>
+<script src="assets/datos.js"></script>
 </body>
 </html>

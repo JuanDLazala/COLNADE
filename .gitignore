@@ -19,3 +19,10 @@ __MACOSX/
 
 # Netlify
 .netlify/
+
+# Carpeta de descarte: archivos reemplazados que Juan borra a mano.
+_to_delete/
+
+# La hoja de registro es plantilla de trabajo, no fuente del sitio:
+# el sitio la lee publicada desde Google Sheets, no desde el repositorio.
+*.xlsx

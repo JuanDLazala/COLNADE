@@ -184,6 +184,12 @@ h3 { font-size: var(--t-xl); line-height: 1.25; font-weight: 600; }
   min-height: 44px;
   align-items: center;
 }
+.brand__logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 640px) { .brand__logo { height: 32px; } }
 .brand__sub {
   font-family: var(--font-display);
   font-size: var(--t-sm);
@@ -509,7 +515,7 @@ table.data tr:hover td { background: var(--hueso); }
 
 .metodo-blocks { display: grid; gap: 40px; }
 .metodo-block h3 { font-size: var(--t-lg); margin-bottom: 8px; }
-.metodo-block p { color: var(--tinta-2); max-width: 65ch; margin: 0; }
+.metodo-block p { color: var(--tinta-2); max-width: max(76ch, 780px); margin: 0; text-wrap: pretty; }
 
 /* ---------- Biblioteca ---------- */
 
@@ -891,9 +897,9 @@ table.data tr:hover td { background: var(--hueso); }
   padding: 40px 36px;
 }
 .convocatoria h2 { color: var(--blanco); }
-.convocatoria p { color: var(--arena); max-width: 58ch; }
+.convocatoria p { color: var(--arena); max-width: 58ch; max-width: max(58ch, 700px); }
 .convocatoria a { color: var(--ambar); text-decoration-color: var(--ambar); }
-.convocatoria .form-suscribir { margin-top: 26px; }
+.convocatoria .form-suscribir { margin-top: 44px; }
 
 .form-suscribir { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
 .form-suscribir input[type="email"] {
@@ -1083,7 +1089,9 @@ table.data tr:hover td { background: var(--hueso); }
 /* Párrafo que explica de qué va la sección, debajo del título */
 .intro {
   color: var(--tinta-2);
-  max-width: 64ch;
+  max-width: 76ch;
+  max-width: max(76ch, 780px);
+  text-wrap: pretty;
   margin: 0 0 var(--space-6);
   font-size: var(--t-md);
   line-height: 1.6;
@@ -1095,7 +1103,7 @@ table.data tr:hover td { background: var(--hueso); }
   font-size: var(--t-xs);
   line-height: 1.5;
   color: var(--tinta-2);
-  max-width: 70ch;
+  max-width: 82ch;
   margin: var(--space-4) 0 0;
 }
 
@@ -1120,3 +1128,51 @@ table.data tr:hover td { background: var(--hueso); }
 
 /* La fuente que va justo debajo del título de un bloque */
 .fuente-pie--head { margin-bottom: 24px; }
+
+/* ============================================================
+   LÍNEAS — el índice por eje
+   La portada solo enuncia las tres líneas y remite; las tarjetas
+   completas y el listado de entradas viven en lineas.html. Antes
+   el menú «Líneas» era un ancla a la portada, así que quien lo
+   pulsaba volvía al inicio y creía estar viendo todo repetido.
+   ============================================================ */
+
+.lineas-resumen { list-style: none; margin: 0; padding: 0; }
+.lineas-resumen > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--arena);
+}
+.lineas-resumen > li:first-child { border-top: 1px solid var(--arena); }
+.lineas-resumen > li > a {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  letter-spacing: 0.02em;
+  color: var(--petroleo);
+  text-decoration: none;
+  margin-right: auto;
+}
+.lineas-resumen > li > a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--oliva);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.linea-grupo + .linea-grupo { margin-top: var(--space-12); }
+.linea-grupo > .seccion-head { margin-bottom: var(--space-4); }
+.linea-grupo .col-lista > li:first-child { padding-top: var(--space-4); border-top: 1px solid var(--arena); }
+
+/* Botón sin destino todavía: se ve, se entiende y no se puede pulsar. */
+a.btn.is-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* El resumen de una entrada acompaña a un titular que ocupa todo el ancho:
+   a 70ch quedaba a media columna y el bloque se leía descuadrado. */
+.entrada-resumen { max-width: 88ch; max-width: max(88ch, 860px); }

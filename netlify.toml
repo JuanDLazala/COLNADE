@@ -49,3 +49,31 @@
 # al emparejar reglas, así que esa regla también captura "/algo/" y lo manda
 # a sí mismo: bucle infinito y ERR_TOO_MANY_REDIRECTS. Netlify ya resuelve
 # la barra final por su cuenta.
+
+# Método pasó a llamarse Participa y Cifras pasó a Hallazgos. Estas dos
+# reglas mantienen vivos los enlaces ya repartidos —Javier revisó el sitio
+# sobre /metodo y /cifras— y son literales, no comodines, para no volver a
+# caer en el bucle que describe la nota de arriba.
+[[redirects]]
+  from = "/metodo"
+  to = "/participa"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/metodo.html"
+  to = "/participa.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cifras"
+  to = "/hallazgos"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cifras.html"
+  to = "/hallazgos.html"
+  status = 301
+  force = true

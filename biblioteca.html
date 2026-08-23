@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Carlito:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
 <link rel="canonical" href="https://colnade.co/observatorio/biblioteca.html">
 <meta name="theme-color" content="#24474c">
-<link rel="icon" type="image/png" href="mq8otj7v-__1-ID-full-color.png">
-<link rel="apple-touch-icon" href="mq8otj7v-__1-ID-full-color.png">
+<link rel="icon" type="image/png" href="logo-simbolo.png">
+<link rel="apple-touch-icon" href="logo-simbolo.png">
 <meta property="og:site_name" content="Observatorio COLNADE">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
@@ -78,7 +78,7 @@
 <header class="site-header" data-od-id="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" data-od-id="brand-link">
-      <img src="mq8otja6-__5-ID-fullcolor-ST.png" alt="COLNADE" style="height:34px;width:auto;object-fit:contain;">
+      <img class="brand__logo" src="logo-colnade.png" alt="COLNADE">
       <span class="brand__sub">Observatorio</span>
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-od-id="nav-toggle">
@@ -86,11 +86,11 @@
     </button>
     <nav class="site-nav" aria-label="Principal" data-od-id="site-nav">
       <a href="tema.html" data-od-id="nav-tema">Tema del mes</a>
+      <a href="participa.html" data-od-id="nav-participa">Participa</a>
       <a href="tribuna.html" data-od-id="nav-tribuna">Tribuna</a>
-      <a href="cifras.html" data-od-id="nav-cifras">Cifras</a>
-      <a href="index.html#lineas" data-od-id="nav-lineas">Líneas</a>
-      <a href="biblioteca.html" class="is-active" aria-current="page" data-od-id="nav-biblioteca">Biblioteca</a>
-      <a href="metodo.html" data-od-id="nav-metodo">Método</a>
+      <a href="hallazgos.html" data-od-id="nav-hallazgos">Hallazgos</a>
+      <a href="lineas.html" data-od-id="nav-lineas">Líneas</a>
+      <a href="biblioteca.html" data-od-id="nav-biblioteca">Biblioteca</a>
     </nav>
   </div>
 </header>
@@ -105,7 +105,7 @@
 
       <p class="section-label">Biblioteca</p>
       <h1 style="max-width:18ch;">Repositorio documental del Observatorio</h1>
-      <p class="aviso-muestra solo-revision">Los documentos listados son los que abren la biblioteca y su clasificación es definitiva. <strong>Los archivos todavía no están cargados</strong> y el contador de «citado en» se llenará solo cuando haya piezas publicadas. Lo que se aprueba aquí es el buscador, el filtro por colección, la ficha de cada documento y el botón de copiar cita.</p>
+      <p class="aviso-muestra solo-revision" data-hoja-aviso>Los documentos listados son los que abren la biblioteca y su clasificación es definitiva. <strong>Los archivos todavía no están cargados</strong> y el contador de «citado en» se llenará solo cuando haya piezas publicadas. Lo que se aprueba aquí es el buscador, el filtro por colección, la ficha de cada documento y el botón de copiar cita.</p>
       <p class="lead" style="max-width:60ch;margin-bottom:var(--space-6);">Las cuatro colecciones que sustentan cada pieza del Observatorio: los documentos oficiales del Estado, la normativa vigente, la literatura científica y la producción propia del Colegio. El repositorio de cada tema se alimenta de aquí, y cada documento trae su cita lista para copiar.</p>
 
       <div class="search-bar" data-od-id="search-bar">
@@ -120,7 +120,7 @@
         <button class="filter-chip" aria-pressed="false" data-filter="conceptos" data-od-id="filtro-conceptos">Conceptos COLNADE</button>
       </div>
 
-      <div id="doc-list" data-od-id="doc-list">
+      <div id="doc-list" data-hoja="biblioteca" data-od-id="doc-list">
         <article class="doc-row" data-od-id="doc-ley-1284" data-tipo="normativa">
           <div>
             <h3 class="doc-row__title">Ley 1284 de 2009 — ejercicio de la profesión de ecólogo</h3>
@@ -221,10 +221,11 @@
         <h4>Secciones</h4>
         <ul>
           <li><a href="tema.html">Tema del mes</a></li>
+          <li><a href="participa.html">Participa</a></li>
           <li><a href="tribuna.html">Tribuna</a></li>
-          <li><a href="cifras.html">Cifras</a></li>
+          <li><a href="hallazgos.html">Hallazgos</a></li>
+          <li><a href="lineas.html">Líneas</a></li>
           <li><a href="biblioteca.html">Biblioteca</a></li>
-          <li><a href="metodo.html">Método</a></li>
         </ul>
       </div>
       <div>
@@ -374,5 +375,7 @@
     }
   })();
 </script>
+<script src="assets/hoja.js"></script>
+<script src="assets/datos.js"></script>
 </body>
 </html>
