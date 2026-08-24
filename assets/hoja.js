@@ -25,6 +25,11 @@ window.OBS_HOJA = {
   /* Enlace del formulario de Google por el que entra toda la
      participación. Se pega aquí una vez y queda puesto en las cinco
      páginas que lo invocan. Mientras esté vacío, los botones «Clic
-     aquí» quedan inertes y la página lo advierte en voz baja. */
-  formulario: ''
+     aquí» quedan inertes y la página lo advierte en voz baja.
+
+     Vive en la cuenta contacto@colnade.co. La versión corta para
+     WhatsApp y redes es https://forms.gle/R3RKpUFjPFS1kUw56 y las
+     respuestas caen en «COLNADE · Respuestas — Participa en el
+     Observatorio», en el Drive de esa misma cuenta. */
+  formulario: 'https://docs.google.com/forms/d/e/1FAIpQLSf3eNGKTvdgouhH3hYV4KL73vszGM50gUwFp9_ML6e3T3hkyA/viewform'
 };
